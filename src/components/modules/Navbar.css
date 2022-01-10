@@ -1,0 +1,10 @@
+.Navbar-outer {
+  min-width: 360px;
+  background-color: var(--background);
+  padding: var(--l);
+}
+
+.Navbar-title {
+  font-size: var(--xl);
+  font-weight: var(--weight-bold);
+}
