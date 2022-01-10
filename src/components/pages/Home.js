@@ -1,9 +1,10 @@
 import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, PresentationControls } from "@react-three/drei";
-import { useControls } from "leva";
+import { OrbitControls, PresentationControls, useProgress, Html, Sky } from "@react-three/drei";
+import { useControls, Leva } from "leva";
 import RoomModels from "../modules/3DExperience/RoomModels";
 import * as THREE from "three";
+import Clouds from "../modules/3DExperience/Clouds";
 
 // softShadows({
 //   frustum: 3.75,
@@ -29,40 +30,76 @@ function Rig() {
   });
 }
 
+function CustomLoader() {
+  return (
+    <Html position={[0, startingCameraPos[1], startingCameraPos[2]]}>
+      <p style={{ color: "black", width: "200px" }}>Preparing scene</p>
+    </Html>
+  );
+}
+
 const Home = (props) => {
   const orbitMaxAngle = Math.PI / 32;
   const halfwayAngle = Math.PI / 2;
 
   const lightProps = useControls("Light", {
-    position: [0, 1, 0],
+    position: [-0.4, 0.8, 0.2],
+  });
+
+  // const sunProps = useControls("Sun", {
+  //   distance: 450000,
+  //   sunPosition: [0, 1, 0],
+  //   inclination: { value: 0.0, min: 0.0, max: 1.0, step: 0.001 },
+  //   azimuth: { value: 0.25, min: 0.0, max: 1.0, step: 0.001 },
+  // });
+
+  const sunProps = useControls("Sun", {
+    distance: 10,
+    inclination: { value: 0.8, min: 0.0, max: 1.0, step: 0.001 },
+    azimuth: { value: 0.9, min: 0.0, max: 1.0, step: 0.001 },
+    mieCoefficient: { value: 0.005, min: 0.0, max: 1.0, step: 0.001 },
+    mieDirectionalG: { value: 0.7, min: 0.0, max: 1.0, step: 0.001 },
+    rayleigh: 0,
+    turbidity: 10,
+  });
+
+  const cloudProps = useControls("Cloud", {
+    depth: 10,
   });
 
   return (
-    <Canvas
-      dpr={[1, 2]}
-      camera={{ position: startingCameraPos, fov: 15, rotation: [0, Math.PI / 2, 0] }}
-      shadows
-    >
-      {/* <OrbitControls /> */}
-      <Suspense fallback={null}>
-        <directionalLight
-          castShadow
-          intensity={1}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={4}
-          shadow-camera-left={-1}
-          shadow-camera-right={1}
-          shadow-camera-top={1}
-          shadow-camera-bottom={-1}
-          {...lightProps}
-        />
-        <ambientLight intensity={0.25} />
-        <color attach="background" args={["#aaaaaa"]} />
-        <RoomModels />
-      </Suspense>
-      <Rig />
-    </Canvas>
+    <>
+      <Leva collapsed={true} />
+      <Canvas
+        dpr={[1, 2]}
+        camera={{ position: startingCameraPos, fov: 15, rotation: [0, Math.PI / 2, 0] }}
+        shadows
+      >
+        {/* <OrbitControls /> */}
+
+        <Suspense fallback={<CustomLoader />}>
+          <ambientLight intensity={0.6} />
+          <directionalLight
+            castShadow
+            intensity={0.5}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-camera-far={4}
+            shadow-camera-left={-1}
+            shadow-camera-right={1}
+            shadow-camera-top={1}
+            shadow-camera-bottom={-1}
+            {...lightProps}
+          />
+          <Sky {...sunProps} />
+
+          <color attach="background" args={["#aaaaaa"]} />
+          <RoomModels />
+          <Clouds />
+        </Suspense>
+        <Rig />
+      </Canvas>
+    </>
   );
 };
 

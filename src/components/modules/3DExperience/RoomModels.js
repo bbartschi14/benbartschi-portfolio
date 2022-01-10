@@ -2,6 +2,7 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import Clock from "./Clock";
 import Robot from "./Robot";
+import Cubes from "./Cubes";
 
 const RoomModels = (props) => {
   const { nodes } = useGLTF("/room_merged_updatedUVs.glb");
@@ -20,7 +21,8 @@ const RoomModels = (props) => {
       </mesh>
 
       <Clock bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} />
-      <Robot bakedTexture={bakedTexture} sceneRoot={nodes.baked.position}></Robot>
+      <Robot bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} />
+      <Cubes bakedTexture={bakedTexture} />
     </>
   );
 };

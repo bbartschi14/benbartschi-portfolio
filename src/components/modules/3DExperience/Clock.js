@@ -31,11 +31,11 @@ const DateText = (props) => {
   const dayNumber = useRef(date.current.getDate());
 
   const { color, position } = useControls("Text", {
-    color: "white",
+    color: [0.8, 0.8, 0.8],
     position: [-0.268, 0.67, -0.503],
   });
 
-  const font = useLoader(FontLoader, "/typefaces/Roboto_Mono_Bold_Reversed.json");
+  const font = useLoader(FontLoader, "/typefaces/Roboto_Mono_Reversed.json");
   const config = useMemo(() => ({ font, size: 0.065, height: 0.001 }), [font]);
   //useLayoutEffect(() => void ref.current.geometry.center(), [text]);
 
@@ -43,7 +43,7 @@ const DateText = (props) => {
     <>
       <mesh rotation={[0, Math.PI / 2, 0]} position={position} scale={[0.75, 1, 1]}>
         <textGeometry args={[month.current, config]} />
-        <meshStandardMaterial color={color} />
+        <meshBasicMaterial color={color} />
       </mesh>
 
       <mesh
@@ -52,7 +52,7 @@ const DateText = (props) => {
         scale={[0.9, 1, 1]}
       >
         <textGeometry args={[zeroPad(dayNumber.current, 2), config]} />
-        <meshStandardMaterial color={color} />
+        <meshBasicMaterial color={color} />
       </mesh>
     </>
   );
@@ -60,6 +60,7 @@ const DateText = (props) => {
 
 const Clock = (props) => {
   const { nodes } = useGLTF("/clockHands.glb");
+  console.log(nodes);
   const startTime = useRef(0.0);
 
   const date = useRef(new Date());
@@ -73,7 +74,6 @@ const Clock = (props) => {
     startTime.current += deltaSeconds;
     if (startTime.current >= 1) {
       // Update every second
-      console.log("Updating");
       startTime.current = startTime.current % 1;
       date.current = new Date();
       hour.current = date.current.getHours();
@@ -91,14 +91,14 @@ const Clock = (props) => {
         geometry={nodes.hourhand.geometry}
         position={nodes.hourhand.position}
       >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"lightgray"} />
+        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={[0.9, 0.9, 0.9]} />
       </mesh>
       <mesh
         ref={minuteHandMesh}
         geometry={nodes.minutehand.geometry}
         position={nodes.minutehand.position}
       >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"lightgray"} />
+        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={[0.9, 0.9, 0.9]} />
       </mesh>
       <DateText />
     </group>
