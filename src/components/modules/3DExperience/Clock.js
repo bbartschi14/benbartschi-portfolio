@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useFrame, extend, useLoader } from "@react-three/fiber";
-import { useRef, useMemo, useLayoutEffect } from "react";
+import { useRef, useMemo, useLayoutEffect, Suspense } from "react";
 import { useControls } from "leva";
 
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
@@ -59,52 +59,61 @@ const DateText = (props) => {
 };
 
 const Clock = (props) => {
-  const { nodes } = useGLTF("/clockHands.glb");
-  console.log(nodes);
-  const startTime = useRef(0.0);
+  //console.log(nodes);
+  //const startTime = useRef(0.0);
 
   const date = useRef(new Date());
   const hour = useRef(date.current.getHours());
   const minutes = useRef(date.current.getMinutes());
+  const seconds = useRef(date.current.getSeconds());
 
   const minuteHandMesh = useRef();
   const hourHandMesh = useRef();
+  const secondHandMesh = useRef();
 
   useFrame((state, deltaSeconds) => {
-    startTime.current += deltaSeconds;
-    if (startTime.current >= 1) {
-      // Update every second
-      startTime.current = startTime.current % 1;
-      date.current = new Date();
-      hour.current = date.current.getHours();
-      minutes.current = date.current.getMinutes();
-    }
-    minuteHandMesh.current.rotation.x = -(Math.PI / 180) * minutes.current * 6; // 6 degrees per minute
+    //startTime.current += deltaSeconds;
+    if (props.nodes == null) return;
+    seconds.current += deltaSeconds;
+    date.current = new Date();
+    hour.current = date.current.getHours();
+    minutes.current = date.current.getMinutes();
+    //seconds.current = date.current.getSeconds();
+
+    secondHandMesh.current.rotation.x = -(Math.PI / 180) * seconds.current * 6;
+    minuteHandMesh.current.rotation.x = -(Math.PI / 180) * minutes.current * 6; // 6 degrees per minute plus
     hourHandMesh.current.rotation.x =
       -(Math.PI / 180) * (hour.current * 30 + minutes.current * 0.5); // 30 degrees per hour plus half a degree per minute (as 60 minutes gives an extra 30 degrees)
   });
 
-  return (
+  return props.nodes ? (
     <group {...props} dispose={null} position={[0, 0, 0]}>
       <mesh
         ref={hourHandMesh}
-        geometry={nodes.hourhand.geometry}
-        position={nodes.hourhand.position}
+        geometry={props.nodes.hourhand.geometry}
+        position={props.nodes.hourhand.position}
       >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={[0.9, 0.9, 0.9]} />
+        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
       </mesh>
       <mesh
         ref={minuteHandMesh}
-        geometry={nodes.minutehand.geometry}
-        position={nodes.minutehand.position}
+        geometry={props.nodes.minutehand.geometry}
+        position={props.nodes.minutehand.position}
       >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={[0.9, 0.9, 0.9]} />
+        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
       </mesh>
-      <DateText />
+      <mesh
+        ref={secondHandMesh}
+        geometry={props.nodes.secondhand.geometry}
+        position={props.nodes.secondhand.position}
+      >
+        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
+      </mesh>
+      <Suspense fallback={null}>
+        <DateText />
+      </Suspense>
     </group>
-  );
+  ) : null;
 };
-
-useGLTF.preload("/clockHands.glb");
 
 export default Clock;

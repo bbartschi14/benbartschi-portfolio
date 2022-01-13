@@ -1,0 +1,47 @@
+.HtmlPoint-point {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff49;
+  /* background: #ffffff; */
+
+  border: 2px solid #ffffff94;
+  color: #ffffff;
+  transform: scale(0, 0);
+  pointer-events: none;
+  transition: all 0.2s;
+}
+
+.HtmlPoint-point.visible {
+  pointer-events: all;
+  transform: scale(1, 1);
+}
+
+.HtmlPoint:hover .HtmlPoint-point {
+  transform: scale(1.2, 1.2);
+  background: #ffffffb2;
+  cursor: help;
+}
+
+.HtmlPoint:hover .HtmlPoint-text {
+  opacity: 1;
+}
+
+.HtmlPoint-text {
+  position: absolute;
+  top: 30px;
+  left: -120px;
+  width: 200px;
+  padding: 16px;
+  background: #00000096;
+  border: 2px solid #ffffff77;
+  color: #ffffff;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 200;
+}

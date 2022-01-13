@@ -63,10 +63,6 @@ const Home = (props) => {
     turbidity: 10,
   });
 
-  const cloudProps = useControls("Cloud", {
-    depth: 10,
-  });
-
   return (
     <>
       <Leva collapsed={true} />
@@ -95,7 +91,13 @@ const Home = (props) => {
 
           <color attach="background" args={["#aaaaaa"]} />
           <RoomModels />
-          <Clouds />
+          <Clouds
+            count={100}
+            minPosition={[-60, 10, 30]}
+            maxPosition={[30, -5, -120]}
+            minScale={[10, 10, 10]}
+            maxScale={[20, 20, 20]}
+          />
         </Suspense>
         <Rig />
       </Canvas>
