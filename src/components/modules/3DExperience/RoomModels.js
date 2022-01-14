@@ -3,7 +3,8 @@ import * as THREE from "three";
 import Clock from "./Clock";
 import Robot from "./Robot";
 import HtmlPoint from "./HtmlPoint";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import FadeOverlay from "../FadeOverlay";
 
 const RoomModels = (props) => {
   const { nodes } = useGLTF("/room_merged_day.glb");
@@ -29,13 +30,15 @@ const RoomModels = (props) => {
         <shadowMaterial attach="material" opacity={0.2} />
       </mesh>
 
+      <FadeOverlay doneLoading />
+
       <Clock bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} nodes={clockNodes} />
       <Robot bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} nodes={robotNodes} />
-      <HtmlPoint position={[0.2, -0.1, 0.775]} doneLoading={doneLoading}>
+      <HtmlPoint position={[0.2, -0.1, 0.775]} doneLoading={doneLoading} location={"top"}>
         One of my first introductions to engineering was putting together a kit of a wooden
         hydraulic robot arm. This one is made of recycled cardboard!
       </HtmlPoint>
-      <HtmlPoint position={[-0.1, -0.1, 0.225]} doneLoading={doneLoading}>
+      <HtmlPoint position={[-0.1, -0.1, 0.225]} doneLoading={doneLoading} location={"top"}>
         <i>Dracaena trifasciata</i>, aka Snake Plant. One of many dotting the corners of our
         apartment.
       </HtmlPoint>
@@ -50,14 +53,14 @@ const RoomModels = (props) => {
       <HtmlPoint position={[-0.25, 0.14, -0.375]} doneLoading={doneLoading}>
         Married to my best friend and all-time project partner.
       </HtmlPoint>
-      <HtmlPoint position={[-0.25, 0.12, -0.7]} doneLoading={doneLoading}>
+      <HtmlPoint position={[-0.25, 0.12, -0.7]} doneLoading={doneLoading} location={"left"}>
         After high school I spent 2 years as a full-time missionary in Ecuador, proselyting and
         serving communities across the southern part of the country.
       </HtmlPoint>
       <HtmlPoint position={[-0.25, 0.32, -0.325]} doneLoading={doneLoading}>
         West coast born and raised!
       </HtmlPoint>
-      <HtmlPoint position={[-0.25, 0.45, -0.72]} doneLoading={doneLoading}>
+      <HtmlPoint position={[-0.25, 0.45, -0.72]} doneLoading={doneLoading} location={"left"}>
         Attending MIT is probably the only reason I'd ever brave snowy New England. Currently
         studying CS, graduating in '23
       </HtmlPoint>
@@ -65,8 +68,6 @@ const RoomModels = (props) => {
         In homage to my hometown and love of strategy games, I designed and modeled this Las Vegas
         chess set.
       </HtmlPoint>
-
-      {/* <Cubes bakedTexture={bakedTexture} /> */}
     </>
   );
 };

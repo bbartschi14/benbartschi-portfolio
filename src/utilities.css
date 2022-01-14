@@ -14,17 +14,20 @@
 * much after initial creation.
 */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
+@import url("https://fonts.googleapis.com/css?family=Space+Mono:400, 700");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
+  --primary: #606c38;
+  --primary--dim: #8f9c65;
+  --secondary: #cb997e;
+  --tertiary: #754043;
   --darkgrey: #d4d4d4;
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
 
-  --background: #111111;
+  --background: #646464;
 
   --xs: 4px;
   --s: 8px;
@@ -32,14 +35,21 @@
   --l: 24px;
   --xl: 32px;
 
+  --font-small: 14px;
+  --font-medium: 18px;
+
   --weight-bold: 600;
   --weight-regular: 300;
+
+  --font--secondary: "Space Mono", monospace;
+  --font--main: "Work Sans", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: var(--font--main);
   font-weight: 300;
   color: white;
 }
@@ -107,4 +117,5 @@ form {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
+  text-decoration: none;
 }

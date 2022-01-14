@@ -4,6 +4,10 @@ import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import "./HtmlPoint.css";
 
+const bottomStyle = { top: "30px", left: "-120px" };
+const topStyle = { bottom: "30px", left: "-120px" };
+const leftStyle = { right: "30px", top: "-50px" };
+
 const HtmlPoint = (props) => {
   const pointRef = useRef();
   const sphere = useRef(
@@ -35,17 +39,29 @@ const HtmlPoint = (props) => {
           timer = setTimeout(() => {
             setForceVisible(false);
           }, 1000 * (1 + props.position[0]));
-        }, 2000);
+        }, 750);
       };
       popup();
       return () => clearTimeout(timer);
     }
   }, [props.doneLoading]);
 
+  const getStyleFromLocation = () => {
+    if (props.location == "top") {
+      return topStyle;
+    } else if (props.location == "left") {
+      return leftStyle;
+    } else {
+      return bottomStyle;
+    }
+  };
+
   return (
     <Html position={props.position} zIndexRange={[100, 0]}>
       <div className="HtmlPoint">
-        <div className="HtmlPoint-text">{props.children}</div>
+        <div className="HtmlPoint-text" style={getStyleFromLocation()}>
+          {props.children}
+        </div>
         <div
           ref={pointRef}
           className={"HtmlPoint-point" + (isVisible || forceVisible ? " visible" : "")}

@@ -1,0 +1,20 @@
+.PageWrapper {
+  /* background: rgb(52, 54, 59); */
+  background-color: rgb(43, 43, 46);
+  flex-grow: 1;
+  padding: var(--xl) 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.PageWrapper-inner {
+  width: 100%;
+  max-width: 1200px;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .PageWrapper {
+    padding: var(--xl);
+  }
+}

@@ -1,0 +1,122 @@
+.Home-container {
+  width: 100%;
+  height: 100%;
+}
+
+.Home-enterSiteWrapper {
+  position: absolute;
+  top: var(--l);
+  left: var(--l);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Home-enterSiteHeader {
+  font-size: 60px;
+  font-weight: 600;
+  text-shadow: 2px 2px #646464;
+  line-height: 1.1em;
+  text-transform: uppercase;
+}
+
+.Home-enterSiteSubtitle {
+  text-transform: uppercase;
+  font-size: var(--l);
+  letter-spacing: 4px;
+  padding-bottom: var(--s);
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 1;
+  font-family: var(--font--secondary);
+}
+
+.Home-enterSiteContainer {
+  background: var(--background);
+  padding: var(--s) var(--m);
+  font-size: var(--m);
+  /* box-shadow: rgba(8, 8, 8, 0.527) 4px 4px 4px; */
+  border: 2px white solid;
+  /* animation: bounce 6s infinite; */
+  opacity: 0.75;
+  font-weight: 600;
+  transition: all 0.15s ease-out;
+  text-decoration: none;
+  color: white;
+  text-transform: none;
+  margin-right: var(--s);
+  /* font-family: var(--font--secondary); */
+}
+
+.Home-enterSiteContainer:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.Home-secondaryHover:hover {
+  border-color: var(--secondary);
+  background: var(--secondary);
+}
+
+.Home-tertiaryHover:hover {
+  border-color: var(--tertiary);
+  background: var(--tertiary);
+}
+
+.Home-info {
+  position: absolute;
+  bottom: var(--l);
+  left: var(--l);
+  background: var(--background);
+  border: 2px white solid;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  opacity: 0.75;
+  transition: all 0.1s;
+}
+
+.Home-info:hover {
+  border-color: var(--tertiary);
+  background: var(--tertiary);
+  opacity: 1;
+  cursor: help;
+  z-index: 10000;
+}
+
+.Home-info:hover .Home-infoText {
+  visibility: visible;
+}
+
+.Home-infoText {
+  line-height: normal;
+  position: absolute;
+  bottom: 50px;
+  width: 220px;
+  visibility: collapse;
+  pointer-events: none;
+  background: var(--tertiary);
+  padding: var(--m);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Home-enterSiteHeader {
+    font-size: 52px;
+  }
+}

@@ -1,10 +1,69 @@
 .Navbar-outer {
-  min-width: 360px;
-  background-color: var(--background);
-  padding: var(--l);
+  min-width: 240px;
+  height: 80px;
+  padding: var(--m) var(--xl);
+  display: flex;
+  background: #3f4142;
+
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+  /* width: 100%; */
+  box-sizing: border-box;
+  /* border-bottom: solid 1px rgba(255, 255, 255, 0.233); */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+  z-index: 100;
 }
 
 .Navbar-title {
   font-size: var(--xl);
-  font-weight: var(--weight-bold);
+  /* font-weight: var(--weight-bold); */
 }
+
+.Navbar-links {
+  display: flex;
+}
+
+.Navbar-link {
+  color: rgb(202, 202, 202);
+  margin-right: var(--m);
+  font-weight: 700;
+  font-size: var(--font-small);
+  transition: all 0.3s;
+  padding: var(--m);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.Navbar-link:hover {
+  color: white;
+  background: var(--tertiary);
+}
+
+.Navbar-selected {
+  color: white;
+  background: var(--primary);
+}
+
+.Navbar-selected:hover {
+  /* color: var(--tertiary); */
+  color: white;
+  background: var(--primary);
+}
+
+/* @media only screen and (max-width: 768px) {
+  .Navbar-outer {
+    padding: var(--s);
+  }
+  .Navbar-title {
+    font-size: var(--m);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Navbar-outer {
+    padding: var(--l);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+} */
