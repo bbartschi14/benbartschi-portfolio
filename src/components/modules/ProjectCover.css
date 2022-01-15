@@ -24,7 +24,7 @@
 
 .ProjectCover-imageWrapper:hover .ProjectCover-goTo {
   opacity: 1;
-  transform: scale(1, 1);
+  transform: translate(-30px, -30px) scale(1, 1);
 }
 
 .ProjectCover-image {
@@ -48,7 +48,9 @@
   border: 2px solid white;
   width: 60px;
   height: 60px;
-  transform: translate(-20px, -20px);
+  transform: translate(-30px, -30px) scale(0, 0);
+  -ms-transform: translate(-30px, -30px) scale(0, 0);
+  -webkit-transform: translate(-30px, -30px) scale(0, 0);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -56,7 +58,7 @@
   font-size: var(--xl);
   color: white;
   pointer-events: none;
-  transform: scale(0, 0);
+  box-sizing: border-box;
 }
 
 .ProjectCover-details {
