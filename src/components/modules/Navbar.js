@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useCallback } from "react";
 import "./Navbar.css";
 import { slide as Menu } from "react-burger-menu";
 import { useWindowDimensions } from "../modules/WindowHelpers";
@@ -7,7 +7,7 @@ import logo from "../../resources/logo64.png";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-console.log(logo);
+// console.log(logo);
 var styles = {
   bmBurgerButton: {
     position: "fixed",
@@ -61,30 +61,37 @@ var styles = {
 
 const NavbarLinks = (props) => {
   const { pathname } = useLocation();
-  // console.log(pathname);
+
+  const handleOnClick = (e) => {
+    props.setMenuOpen(false);
+  };
   return (
     <>
       <Link
         to="/"
         className={"Navbar-link u-noselect" + (pathname == "/" ? " Navbar-selected" : "")}
+        onClick={handleOnClick}
       >
         <i>Desktop</i>
       </Link>
       <Link
         to="/portfolio"
         className={"Navbar-link u-noselect" + (pathname == "/portfolio" ? " Navbar-selected" : "")}
+        onClick={handleOnClick}
       >
         Portfolio
       </Link>
       <Link
         to="/reel"
         className={"Navbar-link u-noselect" + (pathname == "/reel" ? " Navbar-selected" : "")}
+        onClick={handleOnClick}
       >
         Reel
       </Link>
       <Link
         to="/about"
         className={"Navbar-link u-noselect" + (pathname == "/about" ? " Navbar-selected" : "")}
+        onClick={handleOnClick}
       >
         About
       </Link>
@@ -93,11 +100,16 @@ const NavbarLinks = (props) => {
 };
 const Navbar = (props) => {
   const { height, width } = useWindowDimensions();
+  const [isMenuOpen, setMenuOpen] = useState(false);
   return (
     <>
       {width >= 768 ? null : (
-        <Menu styles={styles}>
-          <NavbarLinks isVertical />
+        <Menu
+          styles={styles}
+          isOpen={isMenuOpen}
+          onStateChange={(state) => setMenuOpen(state.isOpen)}
+        >
+          <NavbarLinks isVertical setMenuOpen={setMenuOpen} />
         </Menu>
       )}
       <div className="Navbar-outer">
@@ -108,7 +120,7 @@ const Navbar = (props) => {
 
         {width > 768 ? (
           <div className="Navbar-links">
-            <NavbarLinks />
+            <NavbarLinks setMenuOpen={(val) => {}} />
           </div>
         ) : null}
       </div>
