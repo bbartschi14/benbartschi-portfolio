@@ -1,0 +1,18 @@
+.BlogCallout-wrapper {
+  background: rgb(92, 92, 92);
+  border: 2px solid rgb(175, 175, 175);
+  padding: var(--m);
+  display: flex;
+  /* color: var(--secondary); */
+  margin-left: var(--m);
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+.BlogCallout-content {
+  margin-left: var(--m);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

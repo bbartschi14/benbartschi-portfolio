@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { slide as Menu } from "react-burger-menu";
 import { useWindowDimensions } from "../modules/WindowHelpers";
 import { useLocation, Link } from "react-router-dom";
-import logo from "../../resources/logo64.png";
+import logo from "../../resources/logo512.png";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

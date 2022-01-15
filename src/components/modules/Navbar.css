@@ -42,6 +42,8 @@
 
 .Navbar-logo {
   /* filter: drop-shadow(1px 1px 1px #2e2e2e4b); */
+  width: 64px;
+  height: auto;
 }
 
 .Navbar-links {

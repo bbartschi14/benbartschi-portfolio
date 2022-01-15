@@ -1,8 +1,8 @@
 .BlogSection-wrapper {
-  background: rgba(255, 255, 255, 0.363);
+  background: rgb(62, 65, 70);
   padding: var(--m);
   margin-bottom: var(--l);
-  height: 800px;
+  /* height: 800px; */
   scroll-margin-top: 100px;
 }
 

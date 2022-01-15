@@ -1,0 +1,21 @@
+.BlogInlineMedia-wrapper {
+  /* border-left: solid 4px white; */
+}
+
+.BlogInlineMedia-image {
+  width: 100%;
+  margin-bottom: var(--xs);
+}
+
+.BlogInlineMedia-subtitle {
+  color: white;
+  font-size: var(--font-small);
+  padding: var(--xs) var(--s);
+  opacity: 0.6;
+  transition: all 0.1s;
+  border-left: solid 2px white;
+}
+
+.BlogInlineMedia-subtitle:hover {
+  opacity: 1;
+}

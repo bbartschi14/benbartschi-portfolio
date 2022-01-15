@@ -4,7 +4,7 @@ import treedocsCover from "../../resources/treedocsCover.jpg";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import BlogTemplate from "../modules/Blogs/BlogTemplate";
 import { BlogData } from "../modules/Blogs/BlogsTypes";
-
+import webSceneData from "../pages/blogs/BlogWebsiteScene";
 interface Props {}
 
 export interface ProjectInfo {
@@ -24,19 +24,7 @@ const projectArray: Array<ProjectInfo> = [
     projectMonth: 0,
     projectYear: 2022,
     tags: ["Blender", "React", "Three.js"],
-    blogData: {
-      sections: [
-        { header: "Introduction" },
-        { header: "Middle" },
-        { header: "Conclusion" },
-        { header: "Conclusion2" },
-        { header: "Conclusion3" },
-        { header: "Conclusion4" },
-        { header: "Conclusion5" },
-        { header: "Conclusion6" },
-        { header: "Conclusion7" },
-      ],
-    },
+    blogData: webSceneData,
     path: "website-scene",
   },
   {
@@ -54,7 +42,19 @@ const projectArray: Array<ProjectInfo> = [
     projectMonth: 0,
     projectYear: 2022,
     tags: ["UE4", "C++", "UI", "Tools"],
-    blogData: { sections: [] },
+    blogData: {
+      sections: [
+        { header: "Introduction" },
+        { header: "Middle" },
+        { header: "Conclusion" },
+        { header: "Conclusion2" },
+        { header: "Conclusion3" },
+        { header: "Conclusion4" },
+        { header: "Conclusion5" },
+        { header: "Conclusion6" },
+        { header: "Conclusion7" },
+      ],
+    },
     path: "beyondcad-dev",
   },
   {

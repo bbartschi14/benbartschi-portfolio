@@ -38,7 +38,10 @@ const BlogTemplate = (props: Props) => {
             dangerouslySetInnerHTML={{ __html: props.project.projectName }}
           ></div>
           <div className="BlogTemplate-bannerSubtitleRow">
-            {monthsArray[props.project.projectMonth] + " " + props.project.projectYear}
+            {monthsArray[props.project.projectMonth] +
+              " " +
+              props.project.projectYear +
+              " • Ben Bartschi"}
           </div>
           <Tags tags={props.project.tags} />
         </div>

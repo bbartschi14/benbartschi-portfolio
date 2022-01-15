@@ -1,0 +1,6 @@
+.BlogCodeBlock {
+  font-family: var(--font--code);
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  font-weight: 400;
+}

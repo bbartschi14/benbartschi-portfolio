@@ -1,0 +1,13 @@
+/* .rootElement {
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: red;
+  outline: 1px solid red;
+} */

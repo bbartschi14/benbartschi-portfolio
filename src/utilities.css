@@ -16,6 +16,7 @@
 
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
 @import url("https://fonts.googleapis.com/css?family=Space+Mono:400, 700");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700,800,900");
 
 :root {
   --primary: #606c38;
@@ -44,6 +45,7 @@
 
   --font--secondary: "Space Mono", monospace;
   --font--main: "Work Sans", sans-serif;
+  --font--code: "Source Code Pro", monospace;
 }
 
 body {

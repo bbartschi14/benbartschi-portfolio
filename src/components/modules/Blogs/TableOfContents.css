@@ -12,6 +12,7 @@
   align-self: flex-start;
   /* max-width: 350px; */
   width: 300px;
+  min-width: 300px;
   margin-left: var(--m);
   /* box-shadow: black 0px 0px 4px; */
 }

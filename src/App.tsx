@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import "./utilities.css";
@@ -9,8 +9,26 @@ import NotFound from "./components/pages/NotFound";
 import PageWrapper from "./components/modules/PageWrapper";
 import Reel from "./components/pages/Reel";
 
+function usePrevious<T>(value: T) {
+  const ref = useRef<T>();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 function App() {
   const { pathname } = useLocation();
+  const prevPath: any = usePrevious<string>(pathname);
+  const previousPathRef = useRef("");
+
+  useEffect(() => {
+    // Scroll to top on route changes, except when navigating back a page
+    if (previousPathRef.current !== pathname) {
+      window.scrollTo(0, 0);
+    }
+    previousPathRef.current = prevPath;
+  }, [pathname]);
 
   return (
     <div className="App-wrapper" style={{ height: "100vh" }}>

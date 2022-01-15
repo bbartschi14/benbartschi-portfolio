@@ -1,0 +1,30 @@
+.BlogButtonRow-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s);
+}
+
+.BlogButtonRow-button {
+  background: rgba(255, 255, 255, 0.13);
+  padding: var(--s);
+  font-family: var(--font--secondary);
+  border: 2px solid white;
+  transition: all 0.1s ease-out;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.438) 3px 3px;
+}
+
+.BlogButtonRow-button:last-child {
+  margin-right: 0px;
+}
+
+.BlogButtonRow-button:hover {
+  cursor: pointer;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.BlogButtonRow-button:nth-child(even):hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+}
