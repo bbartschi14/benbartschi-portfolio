@@ -9,7 +9,7 @@ import { EffectComposer, Vignette } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import { useLocation, Link } from "react-router-dom";
 import "./Home.css";
-import useWindowDimensions from "../modules/WindowHelpers";
+import { useWindowDimensions } from "../modules/WindowHelpers";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";

@@ -2,7 +2,7 @@
   /* background: rgb(52, 54, 59); */
   background-color: rgb(43, 43, 46);
   flex-grow: 1;
-  padding: var(--xl) 64px;
+  padding: 100px var(--xl) 64px var(--xl);
   display: flex;
   justify-content: center;
 }
@@ -15,6 +15,7 @@
 
 @media only screen and (max-width: 768px) {
   .PageWrapper {
-    padding: var(--xl);
+    padding: var(--xl) var(--m);
+    padding-top: 100px;
   }
 }

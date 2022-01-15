@@ -1,0 +1,20 @@
+.BlogSection-wrapper {
+  background: rgba(255, 255, 255, 0.363);
+  padding: var(--m);
+  margin-bottom: var(--l);
+  height: 800px;
+  scroll-margin-top: 100px;
+}
+
+.BlogSection-header {
+  text-transform: uppercase;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  h2,
+  h3 {
+    padding-top: 100px;
+    margin-top: 100px;
+  }
+}

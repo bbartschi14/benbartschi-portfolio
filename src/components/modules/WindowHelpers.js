@@ -23,4 +23,4 @@ function useWindowDimensions() {
   return windowDimensions;
 }
 
-export default useWindowDimensions;
+export { useWindowDimensions };

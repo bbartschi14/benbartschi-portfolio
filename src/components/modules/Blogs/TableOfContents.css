@@ -1,0 +1,40 @@
+.TableOfContents-wrapper {
+  /* background: rgba(255, 255, 255, 0.151); */
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  position: -webkit-sticky; /* For Safari */
+  top: 100px; /* How far down the page you want your ToC to live */
+
+  /* Give table of contents a scrollbar */
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  align-self: flex-start;
+  /* max-width: 350px; */
+  width: 300px;
+  margin-left: var(--m);
+  /* box-shadow: black 0px 0px 4px; */
+}
+
+.TableOfContents-link {
+  color: white;
+  text-decoration: none;
+  padding: var(--s);
+  transition: all 0.15s;
+  font-size: var(--font-small);
+  font-family: var(--font--secondary);
+  text-transform: none;
+}
+
+.TableOfContents-link:hover {
+  background: var(--tertiary);
+}
+
+.TableOfContents-link.selected {
+  background: var(--primary);
+  /* font-size: var(--l); */
+}
+
+.TableOfContents-link.selected:hover {
+  background: var(--primary);
+}

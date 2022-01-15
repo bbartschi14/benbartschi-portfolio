@@ -1,0 +1,125 @@
+.ProjectCover-root {
+  margin-bottom: var(--xl);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.171) 4px 4px 8px;
+}
+
+.ProjectCover-wrapper {
+  background: black;
+  padding-bottom: 50%;
+  position: relative;
+}
+
+.ProjectCover-imageWrapper {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.ProjectCover-imageWrapper:hover .ProjectCover-goTo {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.ProjectCover-image {
+  height: 100%;
+  transition: all 0.2s ease-out;
+}
+
+.ProjectCover-image:hover {
+  transform: scale(1.025, 1.025);
+  /* filter: blur(4px); */
+  opacity: 0.7;
+}
+
+.ProjectCover-goTo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.521);
+  border: 2px solid white;
+  width: 60px;
+  height: 60px;
+  transform: translate(-20px, -20px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--xl);
+  color: white;
+  pointer-events: none;
+  transform: scale(0, 0);
+}
+
+.ProjectCover-details {
+  /* background: rgb(18, 18, 19); */
+  background: rgb(74, 74, 80);
+  padding: var(--l);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ProjectCover-title {
+  font-size: var(--font-large);
+  text-transform: uppercase;
+  font-weight: var(--weight-bold);
+}
+
+.ProjectCover-date {
+  font-size: var(--font-small);
+  font-family: var(--font--secondary);
+  opacity: 0.7;
+}
+
+.ProjectCover-tagContainer {
+  display: flex;
+  margin-top: var(--s);
+}
+
+.ProjectCover-tag {
+  background: rgb(44, 45, 48);
+  margin: 0px 4px;
+  padding: var(--s) var(--s);
+  font-family: var(--font--secondary);
+  font-size: var(--font-small);
+  opacity: 0.7;
+  transition: all 0.15s;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+}
+
+.ProjectCover-tag:hover {
+  opacity: 1;
+  background: var(--tertiary);
+}
+
+.ProjectCover-tag:nth-child(even):hover {
+  background: var(--secondary);
+}
+
+@media only screen and (max-width: 768px) {
+  .ProjectCover-details {
+    padding: var(--s);
+  }
+  .ProjectCover-root {
+    margin-bottom: var(--l);
+  }
+  .ProjectCover-title {
+    font-size: var(--font-medium);
+  }
+  .ProjectCover-tag {
+    font-size: 10px;
+  }
+}

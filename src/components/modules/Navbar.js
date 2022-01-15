@@ -1,9 +1,13 @@
 import React from "react";
 import "./Navbar.css";
 import { slide as Menu } from "react-burger-menu";
-import useWindowDimensions from "../modules/WindowHelpers";
+import { useWindowDimensions } from "../modules/WindowHelpers";
 import { useLocation, Link } from "react-router-dom";
+import logo from "../../resources/logo64.png";
+import { faWrench } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+console.log(logo);
 var styles = {
   bmBurgerButton: {
     position: "fixed",
@@ -64,7 +68,7 @@ const NavbarLinks = (props) => {
         to="/"
         className={"Navbar-link u-noselect" + (pathname == "/" ? " Navbar-selected" : "")}
       >
-        Home
+        <i>Desktop</i>
       </Link>
       <Link
         to="/portfolio"
@@ -75,9 +79,14 @@ const NavbarLinks = (props) => {
       <Link
         to="/reel"
         className={"Navbar-link u-noselect" + (pathname == "/reel" ? " Navbar-selected" : "")}
-        style={props.isVertical ? {} : { marginRight: "0px" }}
       >
         Reel
+      </Link>
+      <Link
+        to="/about"
+        className={"Navbar-link u-noselect" + (pathname == "/about" ? " Navbar-selected" : "")}
+      >
+        About
       </Link>
     </>
   );
@@ -92,12 +101,20 @@ const Navbar = (props) => {
         </Menu>
       )}
       <div className="Navbar-outer">
-        <div className="Navbar-title">Ben</div>
+        <div className="Navbar-title u-noselect">
+          <img src={logo} className="Navbar-logo"></img>
+          <div style={{ paddingLeft: "16px", textTransform: "none" }}>Coding / Graphics</div>
+        </div>
+
         {width > 768 ? (
           <div className="Navbar-links">
             <NavbarLinks />
           </div>
         ) : null}
+      </div>
+      <div className="UnderConstruction">
+        Site is currently under construction. Updates coming soon!
+        <FontAwesomeIcon icon={faWrench} style={{ marginLeft: "8px", color: "lightgray" }} />
       </div>
     </>
   );

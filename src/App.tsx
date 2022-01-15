@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/portfolio"
+          path="/portfolio/*"
           element={
             <PageWrapper>
               <Portfolio />
