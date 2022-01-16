@@ -3,8 +3,11 @@ import TableOfContents from "../Blogs/TableOfContents";
 import { BlogData } from "./BlogsTypes";
 import BlogSection from "./BlogSection";
 import { useWindowDimensions } from "../../modules/WindowHelpers";
-import { ProjectInfo } from "../../pages/Portfolio";
 import { Tags } from "../ProjectCover";
+import BlogButtonRow from "./BlogButtonRow";
+import { Link } from "react-router-dom";
+import Icon from "./Icon";
+import { ProjectInfo } from "../ProjectRoot";
 
 const monthsArray: Array<string> = [
   "January",
@@ -23,6 +26,8 @@ const monthsArray: Array<string> = [
 
 interface Props {
   project: ProjectInfo;
+  nextProject: ProjectInfo;
+  rootPath: string;
 }
 
 const BlogTemplate = (props: Props) => {
@@ -53,6 +58,57 @@ const BlogTemplate = (props: Props) => {
           })}
         </div>
         {width >= 950 ? <TableOfContents /> : null}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Link
+          to={props.rootPath + "/" + props.nextProject.path}
+          className="BlogButtonRow-button u-noselect"
+          style={{ display: "flex", flexDirection: "row", marginBottom: "16px" }}
+        >
+          <div>
+            <div>Next Project:</div>
+            <div
+              className="BlogTemplate-nextProject"
+              dangerouslySetInnerHTML={{ __html: props.nextProject.projectName }}
+            ></div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Icon type="arrowRight" style={{ fontSize: "24px", margin: "0px 12px 0px 24px" }} />
+          </div>
+        </Link>
+        <Link
+          to={props.rootPath}
+          className="BlogButtonRow-button u-noselect"
+          style={{ display: "flex", flexDirection: "row", opacity: 0.75 }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Icon type="arrowLeft" style={{ fontSize: "24px", margin: "0px 12px 0px 6px" }} />
+          </div>
+          <div>
+            <div>Return to {props.rootPath}</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -14,15 +14,20 @@ const BlogButtonRow = (props: Props) => {
         const interior: JSX.Element = (
           <>
             {button.text}
-            <Icon type={button.iconType} style={{ marginLeft: "12px" }} />
+            <Icon key={i} type={button.iconType} style={{ marginLeft: "12px" }} />
           </>
         );
         return button.linkTo[0] == "/" ? (
-          <Link to={button.linkTo} className="BlogButtonRow-button u-noselect">
+          <Link key={i} to={button.linkTo} className="BlogButtonRow-button u-noselect">
             {interior}
           </Link>
         ) : (
-          <a href={button.linkTo} target="_blank" className="BlogButtonRow-button u-noselect">
+          <a
+            key={i}
+            href={button.linkTo}
+            target="_blank"
+            className="BlogButtonRow-button u-noselect"
+          >
             {interior}
           </a>
         );

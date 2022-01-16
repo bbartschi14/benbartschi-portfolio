@@ -7,7 +7,7 @@ interface Props {
 
 const BlogSection = (props: Props) => {
   return (
-    <div id={"toc" + props.data.header} className="BlogSection-wrapper">
+    <div id={"toc" + props.data.header.replace(/\W/g, "_")} className="BlogSection-wrapper">
       <h2 className="BlogSection-header">{props.data.header}</h2>
       {props.data.content}
     </div>

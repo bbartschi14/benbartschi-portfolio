@@ -95,6 +95,19 @@ const NavbarLinks = (props) => {
       >
         About
       </Link>
+      {props.enableExtras ? (
+        <>
+          <Link
+            to="/archive"
+            className={
+              "Navbar-link u-noselect" + (pathname == "/archive" ? " Navbar-selected" : "")
+            }
+            onClick={handleOnClick}
+          >
+            Archive
+          </Link>
+        </>
+      ) : null}
     </>
   );
 };
@@ -103,15 +116,13 @@ const Navbar = (props) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      {width >= 768 ? null : (
-        <Menu
-          styles={styles}
-          isOpen={isMenuOpen}
-          onStateChange={(state) => setMenuOpen(state.isOpen)}
-        >
-          <NavbarLinks isVertical setMenuOpen={setMenuOpen} />
-        </Menu>
-      )}
+      <Menu
+        styles={styles}
+        isOpen={isMenuOpen}
+        onStateChange={(state) => setMenuOpen(state.isOpen)}
+      >
+        <NavbarLinks isVertical setMenuOpen={setMenuOpen} enableExtras />
+      </Menu>
       <div className="Navbar-outer">
         <div className="Navbar-title u-noselect">
           <img src={logo} className="Navbar-logo"></img>

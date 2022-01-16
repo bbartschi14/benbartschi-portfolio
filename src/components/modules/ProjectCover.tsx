@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import "./ProjectCover.css";
-import type { ProjectInfo } from "../pages/Portfolio";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ProjectInfo } from "./ProjectRoot";
 
 interface Props {
   info: ProjectInfo;
+  coverBottomPadding?: number; // %
 }
 
 const monthsArray: Array<string> = [
@@ -47,7 +48,11 @@ const Tags = (props: TagProps) => {
 const ProjectCover = (props: Props) => {
   return (
     <div className="ProjectCover-root">
-      <Link to={props.info.path} className="ProjectCover-wrapper">
+      <Link
+        to={props.info.path}
+        className="ProjectCover-wrapper"
+        style={props.coverBottomPadding ? { paddingBottom: props.coverBottomPadding + "%" } : {}}
+      >
         <div className="ProjectCover-imageWrapper">
           <img className="ProjectCover-image" src={props.info.coverImage}></img>
           <div className="ProjectCover-goTo">

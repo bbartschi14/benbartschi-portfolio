@@ -8,6 +8,9 @@ import Navbar from "./components/modules/Navbar";
 import NotFound from "./components/pages/NotFound";
 import PageWrapper from "./components/modules/PageWrapper";
 import Reel from "./components/pages/Reel";
+import Footer from "./components/modules/Footer";
+import About from "./components/pages/About";
+import Archive from "./components/pages/Archive";
 
 function usePrevious<T>(value: T) {
   const ref = useRef<T>();
@@ -51,8 +54,25 @@ function App() {
             </PageWrapper>
           }
         />
+        <Route
+          path="/about"
+          element={
+            <PageWrapper>
+              <About />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/archive/*"
+          element={
+            <PageWrapper>
+              <Archive />
+            </PageWrapper>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      {pathname !== "/" ? <Footer /> : null}
     </div>
   );
 }

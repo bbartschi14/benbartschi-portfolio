@@ -1,0 +1,16 @@
+.Footer-wrapper {
+  background: rgb(34, 34, 39);
+  padding: var(--m);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Footer-name {
+}
+
+.Footer-copywright {
+  font-size: var(--font-small);
+  opacity: 0.6;
+}

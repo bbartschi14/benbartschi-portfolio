@@ -8,8 +8,10 @@ import {
   faCube,
   faCheckSquare,
   faExclamationCircle,
+  faArrowRight,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const getIconFromType = (type: string): any => {
@@ -33,6 +35,14 @@ const getIconFromType = (type: string): any => {
     return faCheckSquare;
   } else if (type == "exclamation") {
     return faExclamationCircle;
+  } else if (type == "arrowRight") {
+    return faArrowRight;
+  } else if (type == "arrowLeft") {
+    return faArrowLeft;
+  } else if (type == "youtube") {
+    return faYoutube;
+  } else if (type == "instagram") {
+    return faInstagram;
   } else {
     return null;
   }

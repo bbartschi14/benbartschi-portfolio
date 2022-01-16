@@ -76,13 +76,14 @@ const TableOfContents = (props: Props) => {
           key={i}
           onClick={(e) => {
             e.preventDefault();
+            console.log(`#${heading.id}`);
             document.querySelector(`#${heading.id}`)?.scrollIntoView({
               behavior: "smooth",
             });
           }}
         >
           {/* substring call removed "toc" identifier from ids */}
-          {heading.id.substring(3)}
+          {heading.id.substring(3).replaceAll("_", " ")}
         </a>
       ))}
     </nav>

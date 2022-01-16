@@ -48,3 +48,9 @@
 .BlogTemplate-bannerSubtitleRow {
   font-family: var(--font--secondary);
 }
+
+.BlogTemplate-nextProject {
+  font-family: var(--font--main);
+  text-transform: uppercase;
+  font-weight: 700;
+}

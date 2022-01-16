@@ -2,3 +2,8 @@
   font-size: var(--font-medium);
   line-height: 1.7rem;
 }
+
+li {
+  font-size: var(--font-medium);
+  line-height: 1.7rem;
+}
