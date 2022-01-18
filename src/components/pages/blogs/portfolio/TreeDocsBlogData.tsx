@@ -227,8 +227,8 @@ const treeDocsData: BlogData = {
 const treeDocsProjectData = {
   coverImage: treedocsCover,
   projectName: "Code Planner, <i>TreeDocs</i>",
-  projectMonth: 0,
-  projectYear: 2022,
+  projectMonth: 8,
+  projectYear: 2021,
   tags: ["React", "MongoDB", "Tools"],
   blogData: treeDocsData,
   path: "tree-docs",

@@ -58,8 +58,8 @@ const chiStudioData: BlogData = {
 const chiStudioProjectData = {
   coverImage: "",
   projectName: "Content Creation App, <i>Chi Studio</i>",
-  projectMonth: 0,
-  projectYear: 2022,
+  projectMonth: 11,
+  projectYear: 2021,
   tags: ["C++", "Graphics", "Tools"],
   blogData: { sections: [] },
   path: "chi-studio",
