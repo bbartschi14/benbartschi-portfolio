@@ -1,6 +1,6 @@
 .BlogTemplate-pageWrapper {
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .BlogTemplate-outerWrapper {
@@ -33,6 +33,10 @@
 .BlogTemplate-contentWrapper {
   /* background: rgba(255, 255, 255, 0.144); */
   flex-grow: 1;
+  /* flex-shrink: 1; */
+  /* max-width: calc(100% - 316px); */
+  /* max-width: 100%; */
+  width: 0;
 }
 
 .BlogTemplate-bannerImage {

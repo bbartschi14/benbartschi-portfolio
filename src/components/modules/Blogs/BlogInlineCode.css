@@ -1,0 +1,7 @@
+.BlogInlineCode-wrapper {
+  color: white;
+  font-family: var(--font--code);
+  background: rgb(36, 36, 37);
+  padding: 1px 8px;
+  font-weight: 300;
+}

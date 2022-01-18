@@ -18,6 +18,8 @@ const BlogCodeBlock = (props: Props) => {
         showLineNumbers={props.showLineNumbers}
         theme={railscast}
         codeBlock
+        highlight={props.highlight}
+        wrapLines={true}
       />
     </div>
   );

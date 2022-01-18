@@ -2,7 +2,6 @@ import BlogButtonRow from "../../../modules/Blogs/BlogButtonRow";
 import BlogInlineMedia from "../../../modules/Blogs/BlogInlineMedia";
 import BlogParagraph from "../../../modules/Blogs/BlogParagraph";
 import { BlogData } from "../../../modules/Blogs/BlogsTypes";
-import image from "../../../../resources/websiteCover.png";
 import BlogCallout from "../../../modules/Blogs/BlogCallout";
 import BlogCodeBlock from "../../../modules/Blogs/BlogCodeBlock";
 import treedocsCover from "../../../../resources/treedocsCover.jpg";
@@ -24,10 +23,7 @@ const treeDocsData: BlogData = {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.
           </BlogParagraph>
-          <BlogInlineMedia
-            image={image}
-            subtitle={<>Example subtitle. Shows with slightly smaller text and less bright.</>}
-          />
+
           <BlogParagraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud

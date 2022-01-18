@@ -2,9 +2,15 @@
   /* border-left: solid 4px white; */
 }
 
+.BlogInlineMedia-imageWrapper {
+  display: flex;
+  justify-content: center;
+  background: rgb(29, 29, 31);
+  margin-bottom: var(--xs);
+}
+
 .BlogInlineMedia-image {
   width: 100%;
-  margin-bottom: var(--xs);
 }
 
 .BlogInlineMedia-subtitle {
@@ -15,6 +21,7 @@
   transition: all 0.1s;
   border-left: solid 2px white;
   margin-block-end: 1em;
+  line-height: 1.25rem;
 }
 
 .BlogInlineMedia-subtitle:hover {

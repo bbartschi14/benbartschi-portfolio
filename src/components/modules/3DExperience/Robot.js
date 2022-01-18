@@ -58,7 +58,7 @@ const Robot = (props) => {
   }, []);
 
   return props.nodes != null ? (
-    <group {...props} dispose={null} position={robotProps.position}>
+    <group {...props} position={robotProps.position}>
       <animated.mesh
         geometry={props.nodes.robotBottom.geometry}
         position={props.nodes.robotBottom.position}

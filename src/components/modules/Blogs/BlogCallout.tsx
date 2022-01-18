@@ -10,7 +10,9 @@ const BlogCallout = (props: Props) => {
   return (
     <div className="BlogCallout-wrapper">
       <Icon type={props.icon} style={{ fontSize: "24px" }} />
-      <div className="BlogCallout-content">{props.children}</div>
+      <div className="BlogCallout-content">
+        <div>{props.children}</div>
+      </div>
     </div>
   );
 };

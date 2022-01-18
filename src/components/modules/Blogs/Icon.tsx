@@ -10,6 +10,8 @@ import {
   faExclamationCircle,
   faArrowRight,
   faArrowLeft,
+  faExternalLinkAlt,
+  faImages,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,6 +45,10 @@ const getIconFromType = (type: string): any => {
     return faYoutube;
   } else if (type == "instagram") {
     return faInstagram;
+  } else if (type == "externalLink") {
+    return faExternalLinkAlt;
+  } else if (type == "images") {
+    return faImages;
   } else {
     return null;
   }
