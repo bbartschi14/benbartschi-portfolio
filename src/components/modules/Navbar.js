@@ -124,10 +124,12 @@ const Navbar = (props) => {
         <NavbarLinks isVertical setMenuOpen={setMenuOpen} enableExtras />
       </Menu>
       <div className="Navbar-outer">
-        <div className="Navbar-title u-noselect">
+        <Link className="Navbar-title u-noselect" to="/portfolio">
           <img src={logo} className="Navbar-logo"></img>
-          <div style={{ paddingLeft: "16px", textTransform: "none" }}>Coding / Graphics</div>
-        </div>
+          <div style={{ paddingLeft: "16px", textTransform: "none", color: "white" }}>
+            Coding / Graphics
+          </div>
+        </Link>
 
         {width > 768 ? (
           <div className="Navbar-links">

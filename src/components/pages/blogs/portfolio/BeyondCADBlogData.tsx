@@ -11,9 +11,6 @@ const beyondCADData: BlogData = {
       header: "Introduction",
       content: (
         <>
-          <BlogCallout icon="camera">This is an important callout!</BlogCallout>
-          <BlogCallout icon="check">This is an important callout!</BlogCallout>
-
           <BlogParagraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -23,27 +20,12 @@ const beyondCADData: BlogData = {
             mollit anim id est laborum.
           </BlogParagraph>
 
-          <BlogParagraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </BlogParagraph>
-          <BlogCodeBlock
-            code={`const x = 2;\nlet y = 4;`}
-            language={"javascript"}
-            showLineNumbers={true}
-            highlight={""}
-          />
           <BlogButtonRow
             buttons={[
-              { text: "View Live Project", linkTo: "/", iconType: "link" },
               {
-                text: "Github",
-                linkTo: "https://github.com/bbartschi14/benbartschi-portfolio",
-                iconType: "github",
+                text: "View BeyondCAD Website",
+                linkTo: "/https://beyondcad.com/",
+                iconType: "link",
               },
             ]}
           />
