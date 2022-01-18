@@ -26,8 +26,9 @@ function App() {
   const previousPathRef = useRef("");
 
   useEffect(() => {
-    // Scroll to top on route changes, except when navigating back a page
-    if (previousPathRef.current !== pathname) {
+    // Scroll to top on route changes
+    const shouldPreventScrollOnBack = false;
+    if (!(shouldPreventScrollOnBack && previousPathRef.current === pathname)) {
       window.scrollTo(0, 0);
     }
     previousPathRef.current = prevPath;

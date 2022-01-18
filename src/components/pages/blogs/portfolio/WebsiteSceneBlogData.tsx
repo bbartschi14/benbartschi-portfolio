@@ -70,6 +70,10 @@ const websiteSceneData: BlogData = {
             The rest of this blog outlines my process, along with challenges faced along the way and
             various optimizations I took to be able to finish in a timely manner.
           </BlogParagraph>
+          <BlogCallout icon="infoCircle">
+            Another great resource I referenced was Bruno Simon's, <i>My Room in 3D</i> app found{" "}
+            <BlogInlineLink path="https://my-room-in-3d.vercel.app/">here</BlogInlineLink>.
+          </BlogCallout>
           <BlogInlineMedia
             image={image}
             subtitle={
