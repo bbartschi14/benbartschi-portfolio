@@ -13,6 +13,7 @@ import {
   faExternalLinkAlt,
   faImages,
   faUserPlus,
+  faFileAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -52,6 +53,8 @@ const getIconFromType = (type: string): any => {
     return faImages;
   } else if (type == "userPlus") {
     return faUserPlus;
+  } else if (type == "fileAlt") {
+    return faFileAlt;
   } else {
     return null;
   }

@@ -125,7 +125,7 @@ const websiteSceneData: BlogData = {
               Archimesh
             </BlogInlineLink>{" "}
             to quickly iterate the base mesh for the window. It's great for architectural features
-            such a walls, doors, winodws, and columns, as well as interior pieces like shelves,
+            such a walls, doors, windows, and columns, as well as interior pieces like shelves,
             lamps, and curtains.
           </BlogCallout>
           <BlogParagraph>
@@ -428,14 +428,12 @@ useEffect(() => {
 }, []);
 ...
 
-  // Change to animated.mesh and pass baseSpring props to control the y rotation
-  return (
-    <animated.mesh {...baseSpring}
-      ...
-    </animated.mesh>
-  );
-};
-  
+// Change to animated.mesh and pass baseSpring props to control the y rotation
+return (
+  <animated.mesh {...baseSpring}
+    ...
+  </animated.mesh>
+);
 ...`}
             language={"jsx"}
             showLineNumbers={true}
