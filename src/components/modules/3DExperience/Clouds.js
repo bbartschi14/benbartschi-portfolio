@@ -20,7 +20,7 @@ const SingleCloud = (props) => {
         <meshBasicMaterial
           attach="material"
           map={texture}
-          color={[0.8, 0.8, 0.8]}
+          color={props.isDay ? [0.8, 0.8, 0.8] : [0.075, 0.075, 0.11]}
           transparent={true}
           opacity={props.opacity}
         />
@@ -53,7 +53,7 @@ const Clouds = (props) => {
     for (let i = 0; i < props.count; i++) {
       positions.push(getRandomVec3InRange(props.minPosition, props.maxPosition));
       scales.push(getRandomVec3InRange(props.minScale, props.maxScale));
-      opacities.push(getRandomInRange(0.5, 1));
+      opacities.push(props.isDay ? getRandomInRange(0.5, 1) : getRandomInRange(0.2, 0.7));
       speeds.push(getRandomInRange(0.5, 2));
     }
 
@@ -61,7 +61,14 @@ const Clouds = (props) => {
     //console.log(scales);
 
     return [positions, scales, opacities, speeds];
-  }, [props.count, props.minPosition, props.maxPosition, props.minScale, props.maxScale]);
+  }, [
+    props.count,
+    props.minPosition,
+    props.maxPosition,
+    props.minScale,
+    props.maxScale,
+    props.isDay,
+  ]);
 
   useFrame((state, deltaSeconds) => {
     if (currentGroup.current != null) {
@@ -78,7 +85,13 @@ const Clouds = (props) => {
   return (
     <group ref={currentGroup} {...props} dispose={null} position={[-200, 20, 0]}>
       {positions.map((pos, i) => (
-        <SingleCloud key={i} scale={scales[i]} position={pos} opacity={opacities[i]} />
+        <SingleCloud
+          key={i}
+          scale={scales[i]}
+          position={pos}
+          opacity={opacities[i]}
+          isDay={props.isDay}
+        />
       ))}
     </group>
   );

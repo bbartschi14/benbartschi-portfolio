@@ -44,7 +44,7 @@
   text-decoration: none;
   color: white;
   text-transform: none;
-  margin-right: var(--s);
+  /* margin-right: var(--s); */
   /* font-family: var(--font--secondary); */
 }
 

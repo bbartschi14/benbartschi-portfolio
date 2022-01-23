@@ -92,23 +92,20 @@ const Clock = (props) => {
         ref={hourHandMesh}
         geometry={props.nodes.hourhand.geometry}
         position={props.nodes.hourhand.position}
-      >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
-      </mesh>
+        material={props.bakedMatInstance}
+      ></mesh>
       <mesh
         ref={minuteHandMesh}
         geometry={props.nodes.minutehand.geometry}
         position={props.nodes.minutehand.position}
-      >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
-      </mesh>
+        material={props.bakedMatInstance}
+      ></mesh>
       <mesh
         ref={secondHandMesh}
         geometry={props.nodes.secondhand.geometry}
         position={props.nodes.secondhand.position}
-      >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} color={"white"} />
-      </mesh>
+        material={props.bakedMatInstance}
+      ></mesh>
       <Suspense fallback={null}>
         <DateText />
       </Suspense>

@@ -3,8 +3,11 @@ import * as THREE from "three";
 import Clock from "./Clock";
 import Robot from "./Robot";
 import HtmlPoint from "./HtmlPoint";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import FadeOverlay from "../FadeOverlay";
+import BakedMaterial from "./BakedShader";
+import { gsap } from "gsap";
+import { MeshBasicMaterial } from "three";
 
 const RoomModels = (props) => {
   const { nodes } = useGLTF("/room_merged_day.glb");
@@ -12,18 +15,30 @@ const RoomModels = (props) => {
   const robotNodes = useGLTF("/robot.glb").nodes;
 
   const bakedTexture = useTexture("/baked_day.jpg");
+  const nightTexture = useTexture("/baked_night.jpg");
   bakedTexture.encoding = THREE.sRGBEncoding;
+  nightTexture.encoding = THREE.sRGBEncoding;
+  bakedTexture.flipY = false;
+  nightTexture.flipY = false;
   const [doneLoading, setDoneLoading] = useState(false);
 
   useEffect(() => {
     setDoneLoading(true);
   }, [nodes]);
 
+  useEffect(() => {
+    bakedMatInstance.map = props.isDay ? bakedTexture : nightTexture;
+  }, [props.isDay]);
+
+  const bakedMatInstance = useMemo(() => {
+    let mat = new MeshBasicMaterial();
+    mat.map = bakedTexture;
+    return mat;
+  }, [bakedTexture, nightTexture]);
+
   return (
     <>
-      <mesh geometry={nodes.baked.geometry}>
-        <meshBasicMaterial map={bakedTexture} map-flipY={false} />
-      </mesh>
+      <mesh geometry={nodes.baked.geometry} material={bakedMatInstance}></mesh>
 
       {/* Create a shadow catcher of the same mesh. TODO: Profile performance, as it's creating a second copy of everything */}
       <mesh geometry={nodes.baked.geometry} receiveShadow>
@@ -32,8 +47,18 @@ const RoomModels = (props) => {
 
       <FadeOverlay doneLoading />
 
-      <Clock bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} nodes={clockNodes} />
-      <Robot bakedTexture={bakedTexture} sceneRoot={nodes.baked.position} nodes={robotNodes} />
+      <Clock
+        bakedTexture={bakedTexture}
+        bakedMatInstance={bakedMatInstance}
+        sceneRoot={nodes.baked.position}
+        nodes={clockNodes}
+      />
+      <Robot
+        bakedTexture={bakedTexture}
+        bakedMatInstance={bakedMatInstance}
+        sceneRoot={nodes.baked.position}
+        nodes={robotNodes}
+      />
       <HtmlPoint position={[0.2, -0.1, 0.775]} doneLoading={doneLoading} location={"top"}>
         One of my first introductions to engineering was putting together a kit of a wooden
         hydraulic robot arm. This one is made of recycled cardboard!

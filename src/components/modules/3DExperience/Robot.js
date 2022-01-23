@@ -65,42 +65,40 @@ const Robot = (props) => {
         rotation={[0, Math.PI / 180, 0]}
         {...baseSpring}
         castShadow
+        material={props.bakedMatInstance}
       >
-        <meshBasicMaterial map={props.bakedTexture} map-flipY={false} />
         <animated.mesh
           geometry={props.nodes.robotMid.geometry}
           position={props.nodes.robotMid.position}
           rotation={[0, 0, Math.PI / 180]}
           {...middleSpring}
           castShadow
+          material={props.bakedMatInstance}
         >
-          <meshBasicMaterial map={props.bakedTexture} map-flipY={false} />
           <animated.mesh
             geometry={props.nodes.robotTop.geometry}
             position={props.nodes.robotTop.position}
             rotation={[0, 0, Math.PI / 180]}
             castShadow
             {...topSpring}
+            material={props.bakedMatInstance}
           >
-            <meshBasicMaterial map={props.bakedTexture} map-flipY={false} />
             <animated.mesh
               geometry={props.nodes.robotClawLeft.geometry}
               position={props.nodes.robotClawLeft.position}
               rotation={[0, Math.PI / 3, 0]}
               castShadow
               {...leftClawSpring}
-            >
-              <meshBasicMaterial map={props.bakedTexture} map-flipY={false} />
-            </animated.mesh>
+              material={props.bakedMatInstance}
+            ></animated.mesh>
             <animated.mesh
               geometry={props.nodes.robotClawRight.geometry}
               position={props.nodes.robotClawRight.position}
               rotation={[0, -Math.PI / 3, 0]}
               castShadow
               {...rightClawSpring}
-            >
-              <meshBasicMaterial map={props.bakedTexture} map-flipY={false} />
-            </animated.mesh>
+              material={props.bakedMatInstance}
+            ></animated.mesh>
           </animated.mesh>
         </animated.mesh>
       </animated.mesh>

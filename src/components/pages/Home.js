@@ -1,6 +1,6 @@
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Html, Sky, Stats } from "@react-three/drei";
+import { OrbitControls, Stats } from "@react-three/drei";
 import { useControls, Leva } from "leva";
 import RoomModels from "../modules/3DExperience/RoomModels";
 import * as THREE from "three";
@@ -14,6 +14,8 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import LoadingScreen from "../modules/LoadingScreen";
+import gsap from "gsap";
+import CustomSky from "../modules/3DExperience/CustomSky";
 
 const startingCameraPos = [4.3, 0.3, 0.1];
 const Rig = (props) => {
@@ -51,21 +53,26 @@ const Home = (props) => {
     console.log("Entering debug mode");
   }
 
-  const sunProps = useControls("Sun", {
-    distance: 10,
-    inclination: { value: 0.8, min: 0.0, max: 1.0, step: 0.001 },
-    azimuth: { value: 0.9, min: 0.0, max: 1.0, step: 0.001 },
-    mieCoefficient: { value: 0.005, min: 0.0, max: 1.0, step: 0.001 },
-    mieDirectionalG: { value: 0.7, min: 0.0, max: 1.0, step: 0.001 },
-    rayleigh: 0,
-    turbidity: 10,
-  });
+  // const sunProps = useControls("Sun", {
+  //   distance: 10,
+  //   inclination: { value: 0.8, min: 0.0, max: 1.0, step: 0.001 },
+  //   azimuth: { value: 0.9, min: 0.0, max: 1.0, step: 0.001 },
+  //   mieCoefficient: { value: 0.005, min: 0.0, max: 1.0, step: 0.001 },
+  //   mieDirectionalG: { value: 0.7, min: 0.0, max: 1.0, step: 0.001 },
+  //   rayleigh: 0,
+  //   turbidity: 10,
+  // });
 
   const { height, width } = useWindowDimensions();
 
+  const [isDay, setIsDay] = useState(() => {
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 18;
+  });
+
   return (
     <div className="Home-container">
-      <Leva collapsed={true} hidden />
+      <Leva collapsed={true} />
       {/* <LoadingScreen /> */}
       <Suspense fallback={<LoadingScreen />}>
         <Canvas
@@ -73,6 +80,7 @@ const Home = (props) => {
           camera={{ position: startingCameraPos, fov: 15, rotation: [0, Math.PI / 2, 0] }}
           shadows
         >
+          {/* <OrbitControls /> */}
           <ambientLight intensity={0.6} />
           <directionalLight
             castShadow
@@ -86,16 +94,15 @@ const Home = (props) => {
             shadow-camera-bottom={-1}
             {...lightProps}
           />
-          <Sky {...sunProps} />
-
-          <color attach="background" args={["#aaaaaa"]} />
-          <RoomModels />
+          <CustomSky isDay={isDay} />
+          <RoomModels isDay={isDay} />
           <Clouds
-            count={100}
+            count={200}
             minPosition={[-60, 10, 30]}
             maxPosition={[30, -5, -120]}
             minScale={[10, 10, 10]}
             maxScale={[20, 20, 20]}
+            isDay={isDay}
           />
           <EffectComposer>
             <Vignette
@@ -113,13 +120,19 @@ const Home = (props) => {
           <div className="Home-enterSiteSubtitle">
             {width >= 768 ? "Computer Science @ MIT" : "CS @ MIT"}
           </div>
-          <div className="u-flex">
+          <div className="u-flex" style={{ flexWrap: "wrap", gap: "8px" }}>
             <Link to="/portfolio" className="Home-enterSiteContainer u-noselect">
               Portfolio
             </Link>
             <Link to="/reel" className="Home-enterSiteContainer u-noselect Home-tertiaryHover">
               Reel
             </Link>
+            <div
+              className="Home-enterSiteContainer u-noselect Home-tertiaryHover"
+              onClick={() => setIsDay((isDay) => !isDay)}
+            >
+              Switch to {isDay ? "Night 🌙 " : "Day ☀️ "} mode
+            </div>
           </div>
         </div>
         <div className="Home-info">
