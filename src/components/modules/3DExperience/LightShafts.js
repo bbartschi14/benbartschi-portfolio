@@ -62,7 +62,6 @@ const LightShafts = (props) => {
 
   useEffect(() => {
     planeGeo.current.setAttribute("random", randomBuffer.current);
-    // console.log(materialRef);
   }, [planeGeo]);
 
   useFrame((state, deltaTime) => {

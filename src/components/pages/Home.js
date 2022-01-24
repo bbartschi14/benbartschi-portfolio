@@ -16,6 +16,7 @@ import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import LoadingScreen from "../modules/LoadingScreen";
 import CustomSky from "../modules/3DExperience/CustomSky";
 import LightShafts from "../modules/3DExperience/LightShafts";
+import NightStars from "../modules/3DExperience/NightStars";
 
 const startingCameraPos = [4.3, 0.3, 0.1];
 const Rig = (props) => {
@@ -58,7 +59,7 @@ const Home = (props) => {
   const [isDay, setIsDay] = useState(() => {
     // const hour = new Date().getHours();
     // return hour >= 6 && hour < 18;
-    return true;
+    return false;
   });
 
   return (
@@ -86,6 +87,8 @@ const Home = (props) => {
             {...lightProps}
           />
           <CustomSky isDay={isDay} />
+          {isDay ? <LightShafts /> : <NightStars />}
+
           <RoomModels isDay={isDay} />
           <Clouds
             count={200}
@@ -95,7 +98,6 @@ const Home = (props) => {
             maxScale={[20, 20, 20]}
             isDay={isDay}
           />
-          {isDay ? <LightShafts /> : null}
           <EffectComposer>
             <Vignette
               offset={0.5}

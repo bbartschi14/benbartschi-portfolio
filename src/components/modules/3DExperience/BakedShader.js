@@ -12,7 +12,6 @@ class BakedMaterial extends ShaderMaterial {
       vertexShader:
         /* glsl */
         `
-        #include <encodings_pars_fragment>
         varying vec2 vUv;
         void main()
         {

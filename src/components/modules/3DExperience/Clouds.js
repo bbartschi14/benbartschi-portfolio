@@ -53,7 +53,7 @@ const Clouds = (props) => {
     for (let i = 0; i < props.count; i++) {
       positions.push(getRandomVec3InRange(props.minPosition, props.maxPosition));
       scales.push(getRandomVec3InRange(props.minScale, props.maxScale));
-      opacities.push(props.isDay ? getRandomInRange(0.5, 1) : getRandomInRange(0.2, 0.7));
+      opacities.push(props.isDay ? getRandomInRange(0.5, 1) : getRandomInRange(0.4, 0.6));
       speeds.push(getRandomInRange(0.5, 2));
     }
 
