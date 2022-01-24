@@ -20,7 +20,7 @@ const SingleCloud = (props) => {
         <meshBasicMaterial
           attach="material"
           map={texture}
-          color={props.isDay ? [0.8, 0.8, 0.8] : [0.075, 0.075, 0.11]}
+          color={props.isDay ? [0.9, 0.9, 0.9] : [0.075, 0.075, 0.11]}
           transparent={true}
           opacity={props.opacity}
         />

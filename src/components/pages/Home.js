@@ -14,8 +14,8 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import LoadingScreen from "../modules/LoadingScreen";
-import gsap from "gsap";
 import CustomSky from "../modules/3DExperience/CustomSky";
+import LightShafts from "../modules/3DExperience/LightShafts";
 
 const startingCameraPos = [4.3, 0.3, 0.1];
 const Rig = (props) => {
@@ -53,26 +53,17 @@ const Home = (props) => {
     console.log("Entering debug mode");
   }
 
-  // const sunProps = useControls("Sun", {
-  //   distance: 10,
-  //   inclination: { value: 0.8, min: 0.0, max: 1.0, step: 0.001 },
-  //   azimuth: { value: 0.9, min: 0.0, max: 1.0, step: 0.001 },
-  //   mieCoefficient: { value: 0.005, min: 0.0, max: 1.0, step: 0.001 },
-  //   mieDirectionalG: { value: 0.7, min: 0.0, max: 1.0, step: 0.001 },
-  //   rayleigh: 0,
-  //   turbidity: 10,
-  // });
-
   const { height, width } = useWindowDimensions();
 
   const [isDay, setIsDay] = useState(() => {
-    const hour = new Date().getHours();
-    return hour >= 6 && hour < 18;
+    // const hour = new Date().getHours();
+    // return hour >= 6 && hour < 18;
+    return true;
   });
 
   return (
     <div className="Home-container">
-      <Leva collapsed={true} />
+      <Leva collapsed={true} hidden={hash !== "#debug"} />
       {/* <LoadingScreen /> */}
       <Suspense fallback={<LoadingScreen />}>
         <Canvas
@@ -104,6 +95,7 @@ const Home = (props) => {
             maxScale={[20, 20, 20]}
             isDay={isDay}
           />
+          {isDay ? <LightShafts /> : null}
           <EffectComposer>
             <Vignette
               offset={0.5}
