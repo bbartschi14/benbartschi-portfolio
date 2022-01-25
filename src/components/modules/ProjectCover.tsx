@@ -30,13 +30,18 @@ const getMonthName = (index: number): string => {
 
 interface TagProps {
   tags: Array<string>;
+  highContrast?: boolean;
 }
 const Tags = (props: TagProps) => {
   return (
     <div className="ProjectCover-tagContainer">
       {props.tags.map((tag, i) => {
         return (
-          <div key={i} className="ProjectCover-tag u-noselect">
+          <div
+            key={i}
+            className="ProjectCover-tag u-noselect"
+            style={props.highContrast ? { opacity: 0.9 } : {}}
+          >
             {tag}
           </div>
         );

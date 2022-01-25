@@ -57,9 +57,9 @@ const Home = (props) => {
   const { height, width } = useWindowDimensions();
 
   const [isDay, setIsDay] = useState(() => {
-    // const hour = new Date().getHours();
-    // return hour >= 6 && hour < 18;
-    return false;
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 18;
+    // return false;
   });
 
   return (

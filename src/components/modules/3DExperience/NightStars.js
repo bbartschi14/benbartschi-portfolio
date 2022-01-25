@@ -3,7 +3,7 @@ import { useRef, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import StarMaterial from "./StarMaterial";
 
-const NightStars = ({ count = 400 }) => {
+const NightStars = ({ count = 300 }) => {
   const shader = useRef();
   const [positionArray, scaleArray] = useMemo(() => {
     const positionArray = new Float32Array(count * 3);
@@ -12,7 +12,7 @@ const NightStars = ({ count = 400 }) => {
       new THREE.Vector3(
         (Math.random() - 0.5) * 1,
         (Math.random() - 0.5) * 60,
-        (Math.random() - 0.5) * 75
+        (Math.random() - 0.5) * 100
       ).toArray(positionArray, i * 3);
       scaleArray[i] = Math.max(Math.random() * 0.175, 0.01);
     }

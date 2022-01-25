@@ -137,10 +137,10 @@ const Navbar = (props) => {
           </div>
         ) : null}
       </div>
-      <div className="UnderConstruction">
+      {/* <div className="UnderConstruction">
         Site is currently under construction. Updates coming soon!
         <FontAwesomeIcon icon={faWrench} style={{ marginLeft: "8px", color: "lightgray" }} />
-      </div>
+      </div> */}
     </>
   );
 };

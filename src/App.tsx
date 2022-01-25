@@ -58,7 +58,7 @@ function App() {
         <Route
           path="/about"
           element={
-            <PageWrapper>
+            <PageWrapper maxWidth={"800px"}>
               <About />
             </PageWrapper>
           }

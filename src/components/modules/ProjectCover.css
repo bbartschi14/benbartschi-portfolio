@@ -88,11 +88,12 @@
 .ProjectCover-tagContainer {
   display: flex;
   margin-top: var(--s);
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .ProjectCover-tag {
   background: rgb(44, 45, 48);
-  margin: 0px 4px;
   padding: var(--s) var(--s);
   font-family: var(--font--secondary);
   font-size: var(--font-small);
