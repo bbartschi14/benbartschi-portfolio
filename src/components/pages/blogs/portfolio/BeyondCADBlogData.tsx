@@ -122,7 +122,7 @@ const beyondCADData: BlogData = {
           </BlogParagraph>
           <BlogCallout icon="link">
             View full{" "}
-            <BlogInlineLink path="https://www.notion.so/Vision-UI-Development-e44befc4ba1e4834b1617e70ebd270d9">
+            <BlogInlineLink path="https://skillful-cloche-8c5.notion.site/BeyondCAD-UI-Development-e44befc4ba1e4834b1617e70ebd270d9">
               Notion Design Document
             </BlogInlineLink>
           </BlogCallout>
