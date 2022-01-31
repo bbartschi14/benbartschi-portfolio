@@ -536,7 +536,45 @@ return (
         </>
       ),
     },
-    { header: "Environment", content: <>Section coming soon!</> }, // TODO
+    {
+      header: "Environment",
+      content: (
+        <>
+          <BlogParagraph>
+            In addition to the synched time and animated robot, I used ambient elements of the
+            environment to inject more life and mood into the scene. The sky outside the window is
+            filled with gentle, randomized clouds. I implemented the clouds as billboard textures,
+            randomizing their transform within boundary limits and adjusting their color to match
+            the time of day. By spacing them out along the axis into the screen, the clouds gain a
+            pleasant parallax effect as they drift across the screen.
+          </BlogParagraph>
+          <BlogParagraph>
+            Day mode brings some shimmering sun shafts in through the window. The shafts are
+            implemented as instanced plane meshes, and their visual is handled by a custom shader.
+            The shader uses a soft gradient texture along with the scene delta time and a randomized
+            per-instance attribute to create the glowing effect. I tuned the glowing by linking the
+            output alpha to a sine function and modulating the wave to the desired amplitude and
+            frequency. Finally, setting the blend mode of the texture to{" "}
+            <BlogInlineCode>THREE.AdditiveBlending</BlogInlineCode> allows it to appear as light
+            illuminating the mesh beneath.
+          </BlogParagraph>
+          <BlogCallout icon="code">
+            If you're interested in seeing how to inject custom shader code into existing{" "}
+            <BlogInlineCode>Three.js</BlogInlineCode> shaders, or how to use{" "}
+            <BlogInlineCode>InstancedBufferAttribute</BlogInlineCode> to pass per-instance
+            attributes to instanced mesh shaders,{" "}
+            <BlogInlineLink path="https://github.com/bbartschi14/benbartschi-portfolio/blob/main/src/components/modules/3DExperience/LightShafts.js">
+              check out my light shafts implementation.
+            </BlogInlineLink>
+          </BlogCallout>
+          <BlogParagraph>
+            Finally, the stars in the night sky use a similar shader to the light shafts but is
+            rendered using GL <BlogInlineCode>Points</BlogInlineCode> instead of instanced meshes,
+            as they don't need to be stretched.
+          </BlogParagraph>
+        </>
+      ),
+    }, // TODO
     {
       header: "Points of Interest",
       content: (
