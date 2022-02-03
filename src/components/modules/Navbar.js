@@ -47,7 +47,7 @@ var styles = {
   bmItemList: {
     color: "#b8b7ad",
     // padding: "0.8em",
-    paddingRight: "1.6em",
+    // paddingRight: "1.6em",
     height: "100%",
     display: "flex",
     flexDirection: "column",
