@@ -2,6 +2,7 @@ import { BlogData } from "../modules/Blogs/BlogsTypes";
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from "react-router-dom";
 import BlogTemplate from "../modules/Blogs/BlogTemplate";
 import ProjectCover from "../modules/ProjectCover";
+import "./ProjectRoot.css";
 
 export interface ProjectInfo {
   coverImage: string;
@@ -17,6 +18,7 @@ interface Props {
   projects: Array<ProjectInfo>;
   rootPath: string;
   rootContent: JSX.Element;
+  rootName: string;
   coverBottomPadding?: number; // % 0-100
 }
 const ProjectRoot = (props: Props) => {
@@ -27,6 +29,7 @@ const ProjectRoot = (props: Props) => {
           path="/"
           element={
             <>
+              <h1 className="BlogTemplate-title ProjectRoot-title">{props.rootName}</h1>
               {props.projects.map((project, i) => {
                 return (
                   <ProjectCover

@@ -30,6 +30,7 @@ const projectArray: Array<ProjectInfo> = [
 const Archive = (props: Props) => {
   return (
     <ProjectRoot
+      rootName="Archive"
       projects={projectArray}
       rootPath="/archive"
       rootContent={<></>}

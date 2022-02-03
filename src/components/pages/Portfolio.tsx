@@ -8,23 +8,26 @@ import treeDocsProjectData from "./blogs/portfolio/TreeDocsBlogData";
 interface Props {}
 
 const projectArray: Array<ProjectInfo> = [
-  websiteSceneProjectData,
   chiStudioProjectData,
+  websiteSceneProjectData,
   beyondCADProjectData,
   treeDocsProjectData,
 ];
 
 const Portfolio = (props: Props) => {
   return (
-    <ProjectRoot
-      projects={projectArray}
-      rootPath="/portfolio"
-      rootContent={
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <ArrowButton text="View Archived Projects" path="/archive" />
-        </div>
-      }
-    />
+    <>
+      <ProjectRoot
+        rootName="Portfolio"
+        projects={projectArray}
+        rootPath="/portfolio"
+        rootContent={
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <ArrowButton text="View Archived Projects" path="/archive" />
+          </div>
+        }
+      />
+    </>
   );
 };
 
