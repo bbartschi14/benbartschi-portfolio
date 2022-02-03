@@ -4,9 +4,10 @@ import BlogParagraph from "../../../modules/Blogs/BlogParagraph";
 import { BlogData } from "../../../modules/Blogs/BlogsTypes";
 import BlogCallout from "../../../modules/Blogs/BlogCallout";
 import BlogCodeBlock from "../../../modules/Blogs/BlogCodeBlock";
-import websiteCover from "../../../../resources/portfolio/desktopscene/websiteCover.png";
-import image from "../../../../resources/portfolio/desktopscene/websiteCover.png";
+import websiteCover from "../../../../resources/portfolio/desktopscene/websiteCoverUpdated.png";
 import oldWebsiteVid from "../../../../resources/portfolio/desktopscene/canvas-1.mp4";
+import image from "../../../../resources/portfolio/desktopscene/websiteCoverUpdated.png";
+import night from "../../../../resources/portfolio/desktopscene/websiteNight.png";
 import sketch from "../../../../resources/portfolio/desktopscene/sketch.jpg";
 import progressgif from "../../../../resources/portfolio/desktopscene/progressiongif.gif";
 import BlogInlineLink from "../../../modules/Blogs/BlogInlineLink";
@@ -572,6 +573,15 @@ return (
             rendered using GL <BlogInlineCode>Points</BlogInlineCode> instead of instanced meshes,
             as they don't need to be stretched.
           </BlogParagraph>
+          <BlogInlineMedia
+            image={night}
+            subtitle={
+              <>
+                Screenshot of the night time scene, live on <a>benbartschi.me</a>. Star and cloud
+                particles visible through the window.
+              </>
+            }
+          />
         </>
       ),
     }, // TODO
@@ -645,13 +655,20 @@ useFrame(() => {
             Although I'm pretty happy with how the scene looks, there are a number of features I
             wanted to include that I haven't had the time for yet. Some include:
             <ul>
-              <li>Adding a night time baked lighting texture.</li>
+              <li>
+                <s>Adding a night time baked lighting texture.</s> Added as of{" "}
+                <BlogInlineCode>Jan 30th, 2022</BlogInlineCode>
+              </li>
+              <li>
+                <s>
+                  Allowing the user to change the time and have the sky atmosphere reflect the
+                  current time.
+                </s>{" "}
+                Also as of <BlogInlineCode>Jan 30th, 2022</BlogInlineCode>, day/night switch button
+                is functioning.
+              </li>
               <li>Implementing IK for robot animation.</li>
               <li>Having the robot pick up and move blocks around.</li>
-              <li>
-                Allowing the user to change the time and have the sky atmosphere reflect the current
-                time.
-              </li>
               <li>Adding ambient sounds and click effects.</li>
               <li>Updating the book textures to include books I've read and classes I've taken.</li>
             </ul>

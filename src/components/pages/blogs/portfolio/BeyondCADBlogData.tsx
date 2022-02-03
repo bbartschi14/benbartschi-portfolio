@@ -254,15 +254,20 @@ const beyondCADData: BlogData = {
             BeyondTypicals provides a lightweight tool for civil engineers and urban planners alike
             to iterate on the design of street sections. I have worked on adding visual graphics,
             refining animations, camera controls, and implementing UE4's Movie Render Queue plug-in
-            into our rendering system, allowing users to generate high quality media.
+            into our rendering system, allowing users to generate high quality media. See the
+            product trailer below.
           </BlogParagraph>
-          <BlogCallout icon="youtube">
-            See the{" "}
-            <BlogInlineLink path="https://www.youtube.com/watch?v=VbnwAOSc0A0">
-              BeyondTypicals pre-launch trailer
-            </BlogInlineLink>{" "}
-            for a closer look.
-          </BlogCallout>
+          <div className="video-outside">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/31gkHMcaulg`}
+              frameBorder="0"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture "
+              className="Reel-video"
+            />
+          </div>
         </>
       ),
     },

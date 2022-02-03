@@ -14,9 +14,12 @@ import {
   faImages,
   faUserPlus,
   faFileAlt,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid&m=free
 
 const getIconFromType = (type: string): any => {
   if (type == "link") {
@@ -55,6 +58,8 @@ const getIconFromType = (type: string): any => {
     return faUserPlus;
   } else if (type == "fileAlt") {
     return faFileAlt;
+  } else if (type == "book") {
+    return faBook;
   } else {
     return null;
   }
