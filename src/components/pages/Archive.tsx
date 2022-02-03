@@ -10,6 +10,7 @@ import robotCharacterProjectData from "./blogs/archive/RobotCharacterBlogData";
 import shortFilmsProjectData from "./blogs/archive/ShortFilmsBlogData";
 import waxLightEnclosureProjectData from "./blogs/archive/WaxLightEnclosureBlogData";
 import strobeLabProjectData from "./blogs/archive/StrobeLabBlogData";
+import ArrowButton from "../modules/ArrowButton";
 
 interface Props {}
 
@@ -31,9 +32,14 @@ const Archive = (props: Props) => {
   return (
     <ProjectRoot
       rootName="Archive"
+      rootSubtitle="Projects from before Summer 2021"
       projects={projectArray}
       rootPath="/archive"
-      rootContent={<></>}
+      rootContent={
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ArrowButton text="View Porfolio" path="/portfolio" />
+        </div>
+      }
       coverBottomPadding={35}
     />
   );

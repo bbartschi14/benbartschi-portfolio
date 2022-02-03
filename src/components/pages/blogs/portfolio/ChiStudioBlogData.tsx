@@ -32,10 +32,6 @@ const chiStudioData: BlogData = {
       header: "Introduction",
       content: (
         <>
-          <BlogInlineMedia
-            image={cover}
-            subtitle={<>Side by side view of render vs. scene view of Luxo Jr. in Chi Studio.</>}
-          />
           <BlogParagraph>
             As someone who often finds themselves torn between the joy of using software to create
             art and the satisfaction of making software, a long standing goal of mine has been to
@@ -90,6 +86,10 @@ const chiStudioData: BlogData = {
               </li>
             </ul>
           </BlogCallout>
+          <BlogInlineMedia
+            image={cover}
+            subtitle={<>Side by side view of render vs. scene view of Luxo Jr. in Chi Studio.</>}
+          />
           <BlogParagraph>
             The remaining blog post outlines various implementation details and capabilities of{" "}
             <i>Chi Studio</i> in its current state, along with various features I would love to
@@ -194,6 +194,7 @@ const chiStudioData: BlogData = {
           <BlogCodeBlock
             language="glsl"
             code={`// sobel.frag
+...
 // Sobel edge detection kernel
 void make_kernel(inout vec4 n[9], sampler2D tex, vec2 coord)
 {

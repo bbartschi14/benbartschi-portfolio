@@ -17,7 +17,7 @@ const BlogInlineLink = (props: Props) => {
   ) : (
     <a href={props.path} target={"_blank"} className="BlogInlineLink-wrapper">
       {props.children}
-      <Icon type="externalLink" style={{ marginLeft: "4px" }} />
+      <Icon type="externalLink" style={{ marginLeft: "4px", fontSize: "14px" }} />
     </a>
   );
 };

@@ -6,6 +6,7 @@ import { useLocation, Link } from "react-router-dom";
 import logo from "../../resources/logo512.png";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from "./Footer";
 
 // console.log(logo);
 var styles = {
@@ -45,11 +46,13 @@ var styles = {
   },
   bmItemList: {
     color: "#b8b7ad",
-    padding: "0.8em",
+    // padding: "0.8em",
     paddingRight: "1.6em",
-    height: "auto",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
+    justifyContent: "space-between",
+    boxSizing: "border-box",
   },
   bmItem: {
     display: "inline-block",
@@ -121,7 +124,10 @@ const Navbar = (props) => {
         isOpen={isMenuOpen}
         onStateChange={(state) => setMenuOpen(state.isOpen)}
       >
-        <NavbarLinks isVertical setMenuOpen={setMenuOpen} enableExtras />
+        <div style={{ display: "flex", flexDirection: "column", padding: "0.8em" }}>
+          <NavbarLinks isVertical setMenuOpen={setMenuOpen} enableExtras />
+        </div>
+        <Footer />
       </Menu>
       <div className="Navbar-outer">
         <Link className="Navbar-title u-noselect" to="/portfolio">

@@ -1,9 +1,19 @@
 .ProjectRoot-title {
   text-align: center;
-  background: #606c38c4;
-  padding: 24px 0px;
+  /* background: #606c38c4; */
+  border: 3px solid white;
+  border-bottom: none;
+  padding: 16px 0px 0px 0px;
   font-size: 36px;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.ProjectRoot-subtitle {
+  border: 3px solid white;
+  border-top: none;
+  text-align: center;
+  padding: 8px 0px 16px 0px;
+  margin: 0px 0px 24px 0px;
 }
 
 @media only screen and (max-width: 768px) {

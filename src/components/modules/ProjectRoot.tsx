@@ -19,6 +19,7 @@ interface Props {
   rootPath: string;
   rootContent: JSX.Element;
   rootName: string;
+  rootSubtitle: string;
   coverBottomPadding?: number; // % 0-100
 }
 const ProjectRoot = (props: Props) => {
@@ -30,6 +31,7 @@ const ProjectRoot = (props: Props) => {
           element={
             <>
               <h1 className="BlogTemplate-title ProjectRoot-title">{props.rootName}</h1>
+              <div className="ProjectRoot-subtitle">{props.rootSubtitle}</div>
               {props.projects.map((project, i) => {
                 return (
                   <ProjectCover

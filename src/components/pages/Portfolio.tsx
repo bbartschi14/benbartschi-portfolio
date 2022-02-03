@@ -19,6 +19,7 @@ const Portfolio = (props: Props) => {
     <>
       <ProjectRoot
         rootName="Portfolio"
+        rootSubtitle="Key projects from Mid 2021 - Early 2022"
         projects={projectArray}
         rootPath="/portfolio"
         rootContent={
