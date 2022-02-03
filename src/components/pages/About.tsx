@@ -39,7 +39,7 @@ const aboutData: BlogSectionData = {
         </li>
         <li>
           💡 6.163{" "}
-          <BlogInlineLink path="/about" isRelative>
+          <BlogInlineLink path="/archive/strobe-lab" isRelative>
             Strobe Lab
           </BlogInlineLink>
         </li>

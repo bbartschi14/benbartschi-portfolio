@@ -9,10 +9,12 @@ import proceduralBuildingProjectData from "./blogs/archive/ProceduralBuildingGen
 import robotCharacterProjectData from "./blogs/archive/RobotCharacterBlogData";
 import shortFilmsProjectData from "./blogs/archive/ShortFilmsBlogData";
 import waxLightEnclosureProjectData from "./blogs/archive/WaxLightEnclosureBlogData";
+import strobeLabProjectData from "./blogs/archive/StrobeLabBlogData";
 
 interface Props {}
 
 const projectArray: Array<ProjectInfo> = [
+  strobeLabProjectData,
   robotCharacterProjectData,
   proceduralBuildingProjectData,
   shortFilmsProjectData,

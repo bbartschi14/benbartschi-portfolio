@@ -1,5 +1,5 @@
 import { BlogData } from "../../../modules/Blogs/BlogsTypes";
-import cover from "../../../../resources/archive/robot/robotCover.png";
+import robotCover from "../../../../resources/archive/robot/robotCover.png";
 import image from "../../../../resources/archive/robot/robot-1.png";
 import BlogParagraph from "../../../modules/Blogs/BlogParagraph";
 import BlogInlineMedia from "../../../modules/Blogs/BlogInlineMedia";
@@ -44,7 +44,7 @@ const robotCharacterData: BlogData = {
 };
 
 const robotCharacterProjectData = {
-  coverImage: cover,
+  coverImage: robotCover,
   projectName: "Robot Character Creation",
   projectMonth: 0,
   projectYear: 2021,
