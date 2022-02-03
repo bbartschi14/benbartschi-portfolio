@@ -189,7 +189,7 @@ const websiteSceneData: BlogData = {
               <>
                 Demoing properties of the custom snake plant shader I made. The general principles
                 include multiplying and modulo-ing the vertical UV coordinate to create the bands,
-                and the mapping a parabola to the outer curve of each leaf the create the yellow
+                and then mapping a parabola to the outer curve of each leaf the create the yellow
                 edge blend. Noise is then distorted and added to each individually to create more
                 organic transitions.
               </>
@@ -214,8 +214,8 @@ const websiteSceneData: BlogData = {
         <>
           <BlogParagraph>
             In order to bake the entire scene into a single texture, I had to UV unwrap all objects
-            and pack them all onto a single map. I used a mix of manual unwrapping for important
-            objects like the robot arm, bulletin board, and clock, and then used Blender's{" "}
+            and pack them onto a single map. I used a mix of manual unwrapping for important objects
+            like the robot arm, bulletin board, and clock, and then used Blender's{" "}
             <BlogInlineCode>Smart UV Project</BlogInlineCode> to speed up the process on many other
             objects. It was important to make sure seams and islands all had sufficient margins
             between them to prevent texture sampling in <BlogInlineCode>Three.js</BlogInlineCode>{" "}
@@ -267,7 +267,7 @@ const websiteSceneData: BlogData = {
           />
           <BlogParagraph>
             With the texture baked, I merged all of the static geometry into a single mesh (this
-            allows the geometry to be drawn in a single draw call) and exporting it with{" "}
+            allows the geometry to be drawn in a single draw call) and exported it with{" "}
             <BlogInlineCode>gltf 2.0</BlogInlineCode>. Importing everything into the website was
             fairly straightforward using <BlogInlineCode>react-three-fiber</BlogInlineCode> and{" "}
             <BlogInlineCode>react-three-drei</BlogInlineCode>. The general setup goes as follows:
@@ -459,11 +459,11 @@ return (
         <>
           <BlogParagraph>
             In order to make the scene feel even more alive, I wanted the clock and date display to
-            be sycnhronized to whoever is viewing the page. The clock hands were exported and
-            brought in similar to the robot arm pieces, except none of them were parented to
-            eachother. Each mesh origin was positioned around the center of the clock, making it
-            easy to animate the hands by rotating around their x-axis. We can retrieve the current
-            system time using JavaScript's <BlogInlineCode>Date</BlogInlineCode> class.
+            be synchronized to whoever is viewing the page. The clock hands were exported and
+            brought in similar to the robot arm pieces, except none of them were parented to each
+            other. Each mesh origin was positioned around the center of the clock, making it easy to
+            animate the hands by rotating around their x-axis. We can retrieve the current system
+            time using JavaScript's <BlogInlineCode>Date</BlogInlineCode> class.
           </BlogParagraph>
           <BlogCallout icon="code">
             See Javascript <BlogInlineCode>Date</BlogInlineCode>{" "}
@@ -562,7 +562,7 @@ return (
           <BlogCallout icon="code">
             If you're interested in seeing how to inject custom shader code into existing{" "}
             <BlogInlineCode>Three.js</BlogInlineCode> shaders, or how to use{" "}
-            <BlogInlineCode>InstancedBufferAttribute</BlogInlineCode> to pass per-instance
+            <BlogInlineCode>InstancedBufferAttribute</BlogInlineCode> objects to pass per-instance
             attributes to instanced mesh shaders,{" "}
             <BlogInlineLink path="https://github.com/bbartschi14/benbartschi-portfolio/blob/main/src/components/modules/3DExperience/LightShafts.js">
               check out my light shafts implementation.

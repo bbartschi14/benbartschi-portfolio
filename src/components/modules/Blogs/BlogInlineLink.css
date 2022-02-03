@@ -1,4 +1,10 @@
 .BlogInlineLink-wrapper {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: 0.1s linear;
+  font-weight: 700;
+}
+
+.BlogInlineLink-wrapper:hover {
   color: white;
-  text-decoration: underline;
 }

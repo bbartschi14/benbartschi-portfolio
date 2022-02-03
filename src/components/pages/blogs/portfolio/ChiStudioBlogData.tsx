@@ -34,7 +34,7 @@ const chiStudioData: BlogData = {
         <>
           <BlogParagraph>
             As someone who often finds themselves torn between the joy of using software to create
-            art and the satisfaction of making software, a long standing goal of mine has been to
+            art and the satisfaction of making software, a long-standing goal of mine has been to
             develop my own digital content creation (DCC) app. <i>Chi Studio</i> is the result of a
             few months of my spare time working towards that goal, and it explores key areas of
             functionality such as modeling, rendering, animating, and compositing. <i>Chi Studio</i>{" "}
@@ -42,7 +42,7 @@ const chiStudioData: BlogData = {
             <ul>
               <li>
                 <BlogInlineLink path="https://github.com/ocornut/imgui">Dear ImGui</BlogInlineLink>{" "}
-                and supplmentary{" "}
+                and supplementary{" "}
                 <BlogInlineLink path="https://github.com/CedricGuillemet/ImGuizmo">
                   ImGuizmo
                 </BlogInlineLink>{" "}
@@ -76,7 +76,7 @@ const chiStudioData: BlogData = {
                 </BlogInlineLink>
               </li>
               <li style={{ fontSize: "16px" }}>
-                Course materials from MIT course{" "}
+                Materials from MIT course{" "}
                 <BlogInlineLink path="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-837-computer-graphics-fall-2012/">
                   6.837 Computer Graphics
                 </BlogInlineLink>
@@ -98,7 +98,7 @@ const chiStudioData: BlogData = {
           <BlogButtonRow
             buttons={[
               {
-                text: "View Chi Studio Github Repo",
+                text: "View Github Repo",
                 linkTo: "https://github.com/bbartschi14/chi-studio",
                 iconType: "github",
               },
@@ -121,9 +121,9 @@ const chiStudioData: BlogData = {
             subtitle={
               <>
                 I use Trello to keep track of tasks and features to be implemented, along with
-                resources and important references. Good project management has been key to making
-                progress, as there are an overwhelming amount of features that could be implemented
-                (just look at the complexity of Blender, Maya, Houdini etc.).
+                useful resources and important references. Good project management has been key to
+                making progress, as there are an overwhelming amount of features that could be
+                implemented (just look at the complexity of Blender, Maya, Houdini etc.).
               </>
             }
             maxWidthPixels={800}
@@ -153,9 +153,9 @@ const chiStudioData: BlogData = {
             <BlogInlineCode>Application::Tick()</BlogInlineCode> function, and at the end of each
             frame, the <BlogInlineCode>Renderer</BlogInlineCode> class uses the scene hierarchy to
             create a real-time rendering. That rendering uses <BlogInlineCode>glsl</BlogInlineCode>{" "}
-            shaders and renders to a frame buffer texture that is then displayed within the scene UI
-            viewport, allowing it to be dynamically resized and positioned within the UI dockspaces.
-            Custom OpenGL helper classes are maintained in the{" "}
+            shaders and renders to a frame buffer texture. That texture is then displayed within the
+            scene UI viewport, allowing it to be dynamically resized and positioned within the UI
+            dockspaces. Custom OpenGL helper classes are maintained in the{" "}
             <BlogInlineCode>ChiGraphics/GL_Wrapper</BlogInlineCode> directory.
           </BlogParagraph>
           <BlogInlineMedia
@@ -172,17 +172,17 @@ const chiStudioData: BlogData = {
             The application uses the scene camera to implement object mouse-picking, allowing the
             user to select objects by clicking on them directly in the viewport. Objects can be
             viewed in solid, wireframe, and points modes, and selected objects are highlighted using
-            a sobel edge detection rendering pipeline that goes as follows:
+            a Sobel edge detection rendering pipeline that goes as follows:
             <ol>
               <li>
                 Selected objects are rendered pure white to a{" "}
                 <BlogInlineLink path="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-14-render-to-texture/#multiple-render-targets">
-                  second render target.
+                  second render target
                 </BlogInlineLink>{" "}
                 called <BlogInlineCode>maskTexture</BlogInlineCode>
               </li>
               <li>
-                <BlogInlineCode>maskTexture</BlogInlineCode> is run through sobel edge detection
+                <BlogInlineCode>maskTexture</BlogInlineCode> is run through a Sobel edge detection
                 pass and blended with the desired outline color using the fragment shader below.
               </li>
               <li>
@@ -244,11 +244,11 @@ void main()
               half-edge data structure
             </BlogInlineLink>
             . Basic primitives can be added to the scene using the hierarchy panel, then edited by
-            selecting it and entering edit mode using the <BlogInlineCode>TAB</BlogInlineCode> key.
-            When in edit mode, mesh primitives (faces, edges, vertices) can be transformed, deleted,
-            and added through extrusions and other mesh operators. The primitives can be selected in
-            the object data list within the edit mode panel, and they're also directly selectable in
-            the scene viewport.
+            selecting them and entering edit mode using the <BlogInlineCode>TAB</BlogInlineCode>{" "}
+            key. When in edit mode, mesh primitives (faces, edges, vertices) can be transformed,
+            deleted, and added through extrusions and other mesh operators. The primitives can be
+            selected in the object data list within the edit mode panel, and they're also directly
+            selectable in the scene viewport.
             <BlogCallout icon="cube">
               Edit mode primitive selection is implemented by ray casting from the camera, through
               the mouse and into the scene. The ray is checked for intersection with the selectable
@@ -270,16 +270,16 @@ void main()
               <li>
                 Find all the connected regions of faces from the current selection.
                 <ol type="i">
-                  <li>Starting with the first face and assign it to a new region by itself.</li>
+                  <li>Start with the first face and assign it to a new region by itself.</li>
                   <li>
-                    Check all neighboring faces. If any are also selected, add them to the current
-                    region. For any that aren't selected, the half-edge belonging to the selected
-                    face that borders it should be added to the regions boundary loop edges. Repeat
-                    this step on each neighbor that was added to the region.{" "}
+                    Check all of its neighboring faces. If any are also selected, add them to the
+                    current region. For any that aren't selected, the half-edge belonging to the
+                    selected face that borders it should be added to the region's boundary loop
+                    edges. Repeat this step on each neighbor that was added to the region.{" "}
                   </li>
                   <li>
-                    Once the recursion of step ii. terminates, repeat step i. for other selected
-                    faces that haven't been assigned to a region.
+                    Once the recursion of step ii. terminates, repeat from step i. for other
+                    selected faces that haven't been assigned to a region.
                   </li>
                 </ol>
               </li>
@@ -322,7 +322,7 @@ void main()
               <>
                 Modifier demo using the screw, subdivision surface, transform, and mirror modifiers.
                 Notice how after extruding an edge of the plane the modified mesh is updated
-                automatically, recalucating the same modifiers on the new base.
+                automatically, recalculating the same modifiers on the new base.
               </>
             }
           ></BlogInlineMedia>
@@ -344,9 +344,9 @@ void main()
           </BlogParagraph>
           <h3>Future Work</h3>
           <BlogParagraph>
-            The modeling functionalities can easily be extended further, and I would love to add
+            The modeling functionalities can easily be extended further, and I would love to add a
             plethora of other modifiers and mesh operations. Some key ones that are sorely needed
-            are creating new edge loops, beveling, box selection, and detaching faces.
+            are edge loop cuts, beveling, box selection, and detaching faces.
           </BlogParagraph>
         </>
       ),
@@ -374,9 +374,9 @@ void main()
           <BlogParagraph>
             The renderer uses super-sampling to anti-alias each pixel, and the desired sample count
             can be set in the UI before rendering. The Rendering panel also has controls for setting
-            the file size, output location, HDRI environment, max path bounces. When rendering
-            animations, the frame range can be set, and the renderer will output each frame
-            sequentially.
+            the image dimensions, output location, HDRI environment, and max path bounces. When
+            rendering animations, the frame range can be set, and the renderer will output each
+            frame sequentially.
           </BlogParagraph>
           <BlogCallout icon="info">
             If you're interested in learning more about the basics of ray/path tracing, check out
@@ -441,7 +441,7 @@ void main()
           </BlogParagraph>
           <BlogParagraph>
             Three different light types are supported. Point lights (with specifiable radius),
-            directional lights, and mesh lights (determines by a material's emittance parameter).
+            directional lights, and mesh lights (determined by a material's emittance parameter).
           </BlogParagraph>
           <BlogInlineMedia
             image={cornell}
@@ -449,9 +449,9 @@ void main()
               <>
                 Cornell Box, modeled and rendered in Chi Studio. Apple texture from sketchfab.
                 Demonstrates the flexibilty of the BSDF, with the walls and boxes being diffuse
-                (high roughness), while the ground and metallic and the glass sphere is transparent.
-                The area light is created using the BSDF's emittance property, and the apple shows
-                use of texture sampling.
+                (high roughness), while the ground is metallic and the sphere is a transparent
+                glass. The area light is created using the BSDF's emittance property, and the apple
+                shows usage of texture sampling.
               </>
             }
             maxWidthPixels={600}
@@ -524,7 +524,7 @@ void main()
             subtitle={
               <>
                 Animation created using Chi Studio's keyframing system on the camera transform and
-                focal distance.
+                focus distance.
               </>
             }
           ></BlogInlineMedia>
@@ -535,7 +535,7 @@ void main()
               <li>Transform (rotation, location, scale)</li>
               <li>Material (albedo, roughness, etc...)</li>
               <li>Light (intensity, color)</li>
-              <li>Camera (FOV, focal distance, aperture)</li>
+              <li>Camera (FOV, focus distance, aperture)</li>
             </ul>
           </BlogParagraph>
           <BlogInlineMedia
@@ -689,7 +689,7 @@ void main()
             subtitle={
               <>
                 Keyframe easing demo. Modeled and rendered in Chi Studio. Note how temporal
-                instability of Open Image Denoise causes flickering in the metal reflections, as
+                instability of Open Image Denoise causes flickering in the metallic reflections, as
                 this was rendered with a low sample count.
               </>
             }
@@ -697,7 +697,7 @@ void main()
           <BlogButtonRow
             buttons={[
               {
-                text: "View Chi Studio Github Repo",
+                text: "View Github Repo",
                 linkTo: "https://github.com/bbartschi14/chi-studio",
                 iconType: "github",
               },
