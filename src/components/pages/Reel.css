@@ -20,3 +20,10 @@
   left: 0;
   right: 0;
 }
+
+.Reel-heading {
+  border: 3px solid white;
+  padding: 16px 0px;
+  font-size: 36px;
+  text-align: center;
+}
