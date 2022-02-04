@@ -614,7 +614,8 @@ void main()
               height="100%"
               src={`https://www.youtube.com/embed/SwbcQfokehQ?autoplay=1?loop=1`}
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
               className="Reel-video"
             />
           </div>

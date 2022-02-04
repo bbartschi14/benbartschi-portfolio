@@ -6,7 +6,7 @@ import "./About.css";
 import BlogInlineLink from "../modules/Blogs/BlogInlineLink";
 import { Tags } from "../modules/ProjectCover";
 import BlogButtonRow from "../modules/Blogs/BlogButtonRow";
-import resume from "../../resources/BartschiResume.pdf";
+import resume from "../../resources/BartschiResumeJan2022.pdf";
 import Icon from "../modules/Blogs/Icon";
 
 const aboutData: BlogSectionData = {
@@ -76,16 +76,7 @@ const skillsData: BlogSectionData = {
     <>
       <Tags
         highContrast
-        tags={[
-          "C++",
-          "C",
-          "Python",
-          "JavaScript",
-          "Blender",
-          "Unreal Engine",
-          "Unity",
-          "AfterEffects",
-        ]}
+        tags={["C++", "Python", "JavaScript", "Blender", "Unreal Engine", "Unity", "AfterEffects"]}
       />
     </>
   ),

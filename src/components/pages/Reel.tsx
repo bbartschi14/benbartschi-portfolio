@@ -3,6 +3,7 @@ import BlogSection from "../modules/Blogs/BlogSection";
 import BlogInlineLink from "../modules/Blogs/BlogInlineLink";
 
 import "./Reel.css";
+import BlogCallout from "../modules/Blogs/BlogCallout";
 
 const Reel = ({}) => {
   return (
@@ -15,7 +16,8 @@ const Reel = ({}) => {
             height="100%"
             src="https://www.youtube.com/embed/vq4bfMUl_ew"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
             className="Reel-video"
           />
         </div>
@@ -48,6 +50,12 @@ const Reel = ({}) => {
                     </li>
                   </ul>
                 </BlogParagraph>
+                <BlogCallout icon="youtube">
+                  Backup YouTube link:{" "}
+                  <BlogInlineLink path="https://youtu.be/vq4bfMUl_ew">
+                    youtu.be/vq4bfMUl_ew
+                  </BlogInlineLink>
+                </BlogCallout>
               </>
             ),
           }}
@@ -60,7 +68,8 @@ const Reel = ({}) => {
             height="100%"
             src="https://www.youtube.com/embed/wBSrTivJ7xo"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
             className="Reel-video"
           />
         </div>
@@ -73,6 +82,12 @@ const Reel = ({}) => {
                   For breakdowns of projects featured in this reel, view my archive{" "}
                   <BlogInlineLink path="/archive">here</BlogInlineLink>.
                 </BlogParagraph>
+                <BlogCallout icon="youtube">
+                  Backup YouTube link:{" "}
+                  <BlogInlineLink path="https://youtu.be/wBSrTivJ7xo">
+                    youtu.be/wBSrTivJ7xo
+                  </BlogInlineLink>
+                </BlogCallout>
               </>
             ),
           }}
