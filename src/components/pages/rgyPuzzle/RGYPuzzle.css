@@ -1,0 +1,75 @@
+.RGYPuzzle-header {
+    text-transform: uppercase;
+  }
+
+.RGYPuzzle-canvasWrapper {
+    position: relative;
+}
+
+.RGYPuzzle-graphContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.RGYPuzzle-circle {
+    border-radius: 50%;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+}
+
+.RGYPuzzle-circle.helper {
+    opacity: .5;
+    visibility: collapse;
+}
+
+.RGYPuzzle-circle:hover {
+    width: 44px;
+    height: 44px;
+}
+
+.RGYPuzzle-PathPanelContainer {
+    padding: var(--s);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.445);
+}
+
+.RGYPuzzle-PathPanelContainer:hover {
+   background-color: var(--primary);
+   cursor: pointer;
+}
+
+.RGYPuzzle-PathPanelContainer.selected {
+    background-color: var(--tertiary);
+}
+
+.RGYPuzzle-button {
+    background: rgba(255, 255, 255, 0.13);
+    padding: var(--s);
+    font-family: var(--font--secondary);
+    border: 2px solid white;
+    transition: all 0.1s ease-out;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.438) 3px 3px;
+}
+
+ 
+.RGYPuzzle-button:hover {
+    cursor: pointer;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+  

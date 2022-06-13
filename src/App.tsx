@@ -11,6 +11,7 @@ import Reel from "./components/pages/Reel";
 import Footer from "./components/modules/Footer";
 import About from "./components/pages/About";
 import Archive from "./components/pages/Archive";
+import RGYPuzzle from "./components/pages/rgyPuzzle/RGYPuzzle";
 
 function usePrevious<T>(value: T) {
   const ref = useRef<T>();
@@ -68,6 +69,14 @@ function App() {
           element={
             <PageWrapper>
               <Archive />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/rgyPuzzle"
+          element={
+            <PageWrapper>
+              <RGYPuzzle />
             </PageWrapper>
           }
         />
