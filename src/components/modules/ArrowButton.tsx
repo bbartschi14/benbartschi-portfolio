@@ -4,6 +4,7 @@ import Icon from "./Blogs/Icon";
 interface Props {
   text: string;
   path: string;
+  arrowSize?: number;
 }
 const ArrowButton = (props: Props) => {
   return (
@@ -23,7 +24,13 @@ const ArrowButton = (props: Props) => {
           justifyContent: "center",
         }}
       >
-        <Icon type="arrowRight" style={{ fontSize: "24px", margin: "0px 12px 0px 24px" }} />
+        <Icon
+          type="arrowRight"
+          style={{
+            fontSize: `${props.arrowSize ? props.arrowSize : 24}px`,
+            margin: "0px 12px 0px 24px",
+          }}
+        />
       </div>
     </Link>
   );

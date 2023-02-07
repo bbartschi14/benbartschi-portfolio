@@ -19,6 +19,7 @@ const BlogInlineMedia = (props: Props) => {
           <video
             className="BlogInlineMedia-image"
             autoPlay
+            playsInline
             muted
             loop
             style={{ maxWidth: props.maxWidthPixels }}
@@ -32,6 +33,7 @@ const BlogInlineMedia = (props: Props) => {
           />
         ) : (
           <img
+            alt="blog"
             src={props.image}
             className="BlogInlineMedia-image"
             style={{ maxWidth: props.maxWidthPixels }}

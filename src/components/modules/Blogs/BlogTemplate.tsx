@@ -103,11 +103,9 @@ const BlogTemplate = (props: Props) => {
               justifyContent: "center",
             }}
           >
-            <Icon type="arrowLeft" style={{ fontSize: "24px", margin: "0px 12px 0px 6px" }} />
+            <Icon type="arrowLeft" style={{ fontSize: "18px", margin: "0px 12px 0px 6px" }} />
           </div>
-          <div>
-            <div>Return to {props.rootPath}</div>
-          </div>
+          <div>Return to {props.rootPath}</div>
         </Link>
       </div>
     </div>
