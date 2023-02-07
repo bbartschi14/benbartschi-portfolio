@@ -6,7 +6,7 @@ const Footer = (props) => {
     <div className="Footer-wrapper">
       <Icon type="code" style={{ fontSize: "24px", marginBottom: "4px" }} />
       <div className="Footer-name">Made by Ben Bartschi</div>
-      <div className="Footer-copywright">© Copyright 2022</div>
+      <div className="Footer-copywright">© Copyright 2023</div>
     </div>
   );
 };

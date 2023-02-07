@@ -3,7 +3,7 @@ import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slide
 
 interface Props {
   image: string;
-  subtitle: JSX.Element;
+  subtitle?: JSX.Element;
   isVideo?: boolean;
   isCompare?: boolean;
   compareImage?: string;
@@ -40,7 +40,7 @@ const BlogInlineMedia = (props: Props) => {
           />
         )}
       </div>
-      <div className="BlogInlineMedia-subtitle">{props.subtitle}</div>
+      {props.subtitle ? <div className="BlogInlineMedia-subtitle">{props.subtitle}</div> : null}
     </div>
   );
 };

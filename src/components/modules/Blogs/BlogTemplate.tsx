@@ -36,7 +36,12 @@ const BlogTemplate = (props: Props) => {
   return (
     <div className="BlogTemplate-outerWrapper">
       <div className="BlogTemplate-banner">
-        <img className="BlogTemplate-bannerImage" src={props.project.coverImage}></img>
+        <img
+          alt="banner"
+          className="BlogTemplate-bannerImage"
+          src={props.project.coverImage}
+          style={{ filter: `blur(6px)`, transform: `scale(1.1)` }}
+        ></img>
         <div className="BlogTemplate-bannerInfoContainer">
           <div
             className="BlogTemplate-title"

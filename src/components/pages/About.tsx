@@ -6,7 +6,7 @@ import "./About.css";
 import BlogInlineLink from "../modules/Blogs/BlogInlineLink";
 import { Tags } from "../modules/ProjectCover";
 import BlogButtonRow from "../modules/Blogs/BlogButtonRow";
-import resume from "../../resources/BartschiResumeJan2022.pdf";
+import resume from "../../resources/Bartschi_Resume.pdf";
 import Icon from "../modules/Blogs/Icon";
 
 const aboutData: BlogSectionData = {

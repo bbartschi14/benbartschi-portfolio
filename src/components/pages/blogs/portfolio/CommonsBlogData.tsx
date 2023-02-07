@@ -6,29 +6,29 @@ import Icon from "../../../modules/Blogs/Icon";
 import BlogInlineCode from "../../../modules/Blogs/BlogInlineCode";
 import { ProjectInfo } from "../../../modules/ProjectRoot";
 import cover from "../../../../resources/portfolio/commons/cover.png";
-
+import city0 from "../../../../resources/portfolio/commons/City_Scene_Screenshot_0.png";
+import city3 from "../../../../resources/portfolio/commons/City_Scene_Screenshot_3.png";
+import camera from "../../../../resources/portfolio/commons/customcamera_2.png";
+import commons0 from "../../../../resources/portfolio/commons/commons_home_pre.png";
+import commons1 from "../../../../resources/portfolio/commons/commons_home.png";
+import timelapse from "../../../../resources/portfolio/commons/commons_timelapse_short_Trim.mp4";
+import BlogInlineLink from "../../../modules/Blogs/BlogInlineLink";
 const commonsData: BlogData = {
   sections: [
     {
-      header: "Introduction",
+      header: "Every ambitious project needs a strong foundation.",
       content: (
         <>
           <BlogParagraph>
-            While working on large code bases and projects, it can be hard to visualize all of the
-            various dependencies and connections that are made in order to perform critical tasks.
-            When implementing new features, I often find myself sketching out filenames, classes,
-            and functions in order to keep track of where changes need to be made. I've also been
-            using Unreal Engine 4 for work, and I really enjoy using their Blueprint node system and
-            dependency graphs for making sense of code.
+            Whether designing video game levels or laying out an animation sequence, Commons allows
+            you to quickly iterate and collaborate on the perfect solution.
           </BlogParagraph>
-
-          <BlogParagraph>
-            I was inspired by their systems and decided to make my own code planning web-tool. I
-            wanted it to be graph-oriented and used to easily create visual documentation, so I
-            coined it <i>commons</i>. The rest of this post goes into detail about how to use{" "}
-            <i>commons</i>, what it might be good for, and some thoughts on how I developed it.
-          </BlogParagraph>
-
+          <BlogInlineMedia
+            image={city0}
+            compareImage={city3}
+            isCompare
+            subtitle={<>1 minute (left) vs 10 minutes (right)</>}
+          ></BlogInlineMedia>
           <BlogButtonRow
             buttons={[
               {
@@ -47,79 +47,39 @@ const commonsData: BlogData = {
       ),
     },
     {
-      header: "Getting Started with commons",
+      header: "Share ideas and give feedback in real-time.",
       content: (
         <>
           <BlogParagraph>
-            <i>commons</i> allows you to save all of your documentation associated with your
-            account, so log in with Google to get started.
+            3D environments are difficult to visualize. Get your team on the same page and overcome
+            communication barriers by showing instead of telling.
           </BlogParagraph>
-
+          <BlogInlineMedia isVideo image={timelapse}></BlogInlineMedia>
+        </>
+      ),
+    },
+    {
+      header: "Setup custom cameras to track compositions.",
+      content: (
+        <>
           <BlogParagraph>
-            Once logged in, you can start a new, empty project. The grid-lined area in the center of
-            the project is your workspace to arrange classes, functions, and comments. Let's start
-            by creating a new class by clicking and dragging from the "Add Class" circle icon in the
-            top right. <Icon type="userPlus" />
+            Finding the right eye-line for your scene can be a challenge. Commons allows you to
+            quickly setup and save custom camera views to help you find the perfect shot,
+            maintaining it each iteration.
           </BlogParagraph>
-
+          <BlogInlineMedia image={camera}></BlogInlineMedia>
+        </>
+      ),
+    },
+    {
+      header: "Continue with your 3D package of choice.",
+      content: (
+        <>
           <BlogParagraph>
-            For our cooking game, we'll define some interactions of a few classes. Let's make a{" "}
-            <BlogInlineCode>GameManager</BlogInlineCode>,{" "}
-            <BlogInlineCode>ChefPlayer</BlogInlineCode>, and <BlogInlineCode>Food</BlogInlineCode>{" "}
-            class. You can rename the selected class on the far right <i>Class</i> text field.{" "}
-            <i>commons</i> also leaves space for documenting the parent class, as inheritance
-            hierarchies are often crucial to well-structured code. Let's leave our{" "}
-            <BlogInlineCode>GameManager</BlogInlineCode> and <BlogInlineCode>Food</BlogInlineCode>{" "}
-            parents blank, and we can designate a <BlogInlineCode>Player</BlogInlineCode> base class
-            for the <BlogInlineCode>ChefPlayer</BlogInlineCode> class, as that might implement the
-            general functionality not specific to chefs.
+            When you're ready to move into production, export your scene and use it as a base for
+            your favorite software, like Blender, Maya, or Unity.
           </BlogParagraph>
-
-          <BlogParagraph>
-            Now let's add some functions to our classes. Our{" "}
-            <BlogInlineCode>GameManager</BlogInlineCode> will implement{" "}
-            <BlogInlineCode>{`CreateOrder() => Food`}</BlogInlineCode>, which creates defines a
-            random food that the players need to create. You can define this by selecting the game
-            manager and clicking "Add Function" on the right. Select the newly created function
-            which opens the functions properties for editing. You can change the name, return value,
-            and input parameters. Since the return value of this function is custom type, select
-            "Custom" and type in food. Our chef will implement{" "}
-            <BlogInlineCode>{`CookFood(Food) => boolean`}</BlogInlineCode>, which takes in a food
-            and returns a boolean of whether cooking was successful.
-          </BlogParagraph>
-
-          <BlogParagraph>
-            Note that function and variable icons are color coded according to their type for
-            convenience. Classes can also hold member variables. Let's practice defining some for
-            our chef and food. Our chef will have <BlogInlineCode>name</BlogInlineCode> of type{" "}
-            <BlogInlineCode>string</BlogInlineCode>, and our food will have{" "}
-            <BlogInlineCode>isCooked</BlogInlineCode> of type{" "}
-            <BlogInlineCode>boolean</BlogInlineCode>
-          </BlogParagraph>
-          <BlogParagraph>
-            We can now define some control flows. In the hierarchy panel on the left, you can expand
-            out each class to access their function nodes. Click the "+" plus icon by our{" "}
-            <BlogInlineCode>ChefPlayer</BlogInlineCode>
-            and <BlogInlineCode>GameManager</BlogInlineCode> functions to add them to the graph. We
-            can now click and drag to create connections between nodes. We'll connect them as
-            follows to show that the <BlogInlineCode>GameManager</BlogInlineCode> passes its order
-            to the <BlogInlineCode>ChefPlayer</BlogInlineCode>, who then uses the food to cook.
-          </BlogParagraph>
-
-          <BlogParagraph>
-            Finally, we can add comments to our graph by clicking and dragging off the comments
-            button to the right. Encapsulate nodes and write comments to explain more of what is
-            going on. You can also change the color of your comment boxes for improved visibilty.
-          </BlogParagraph>
-
-          <BlogParagraph>
-            Now you can utilize the core features of <i>commons</i> to document and organize your
-            own projects! You can delete nodes from the graph, but the class will persist in the
-            hierarchy and allow you to re-add it if needed. You can also create multiple graphs per
-            project with the <i>Graphs</i> tab on the left. When you're done, name your project at
-            the top and click the save button on the left. When you visit the <i>commons</i>{" "}
-            homepage, you'll be able to load in any saved projects.
-          </BlogParagraph>
+          <BlogInlineMedia isCompare image={commons0} compareImage={commons1}></BlogInlineMedia>
         </>
       ),
     },
@@ -128,10 +88,9 @@ const commonsData: BlogData = {
       content: (
         <>
           <BlogParagraph>
-            Creating <i>commons</i> was both a great exercise in programming, and a very useful
-            investment in a planning tool that I've used on several other projects. If you still
-            haven't yet, check out the website and try it for yourself. The GitHub repo is also
-            public if you're interested in learning more about how it was developed.
+            I created Commons in January 2023 as a submission to MIT's web programming competition.
+            Commons won{" "}
+            <BlogInlineLink path="https://weblab.mit.edu/winners/">first place!</BlogInlineLink>
           </BlogParagraph>
           <BlogButtonRow
             buttons={[

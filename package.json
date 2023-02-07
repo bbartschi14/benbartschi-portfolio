@@ -2,6 +2,11 @@
   "name": "benbartschi",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -21,6 +26,7 @@
     "@types/three": "^0.135.0",
     "gsap": "^3.9.1",
     "leva": "^0.9.18",
+    "memfs": "^3.4.13",
     "postprocessing": "^6.23.3",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
